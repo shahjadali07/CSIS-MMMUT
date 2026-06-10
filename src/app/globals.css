@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Linear Dark Theme Colors */
+  --bg: #000000;
+  --bg-alt: #0A0A0A;
+  --surface: rgba(255, 255, 255, 0.02);
+  --surface-hover: rgba(255, 255, 255, 0.05);
+  
+  --border: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(255, 255, 255, 0.15);
+  
+  --text: #FFFFFF;
+  --text-muted: #A1A1AA;
+  --text-dim: #71717A;
+  
+  --accent: #5E6AD2; /* Linear purple/indigo vibe */
+  --accent-light: #818CF8;
+  --accent-glow: rgba(94, 106, 210, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif; /* Strictly Inter */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography Overrides ────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+
+/* ── Backgrounds ─────────────────────────────────────── */
+.bg-mesh {
+  background: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.12) 0%, transparent 70%);
+}
+
+.noise-bg {
+  position: relative;
+}
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* ── Selection ────────────────────────────────────────── */
+::selection {
+  background: var(--accent);
+  color: #FFF;
+}
+
+/* ── Linear Card (Replaces blueprint-card) ────────────── */
+.linear-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.linear-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.linear-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-highlight);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.linear-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Buttons ──────────────────────────────────────────── */
+.btn-primary {
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid transparent;
+  padding: 10px 24px;
+  border-radius: 99px; /* Pill shape */
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
+}
+.btn-primary:hover {
+  background: #FAFAFA;
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 24px;
+  border-radius: 99px; /* Pill shape */
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ── Section Dividers ────────────────────────────────── */
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ── Background Patterns ──────────────────────────────── */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.network-nodes {
+  position: relative;
+}
+
+.network-nodes::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(94,106,210,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 65%, rgba(129,140,248,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 45% 80%, rgba(99,102,241,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 85% 20%, rgba(94,106,210,0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* ── Premium Card with Gradient Border ───────────────── */
+.premium-card {
+  position: relative;
+  border-radius: 14px;
+  isolation: isolate;
+}
+
+.premium-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, rgba(94,106,210,0.6), rgba(129,140,248,0.3), transparent 40%, transparent 60%, rgba(129,140,248,0.3), rgba(94,106,210,0.6));
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: -1;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  padding: 1px;
+}
+
+.premium-card:hover::before {
+  opacity: 1;
+}
+
+.premium-card-inner {
+  background: var(--surface);
+  border-radius: 13px;
+  position: relative;
+  z-index: 0;
+  height: 100%;
+  transition: background 0.4s ease, border-color 0.4s ease;
+  border: 1px solid var(--border);
+}
+
+.premium-card:hover .premium-card-inner {
+  background: var(--surface-hover);
+  border-color: rgba(255,255,255,0.06);
+}
+
+/* ── Featured Card ────────────────────────────────────── */
+.premium-card.featured::before {
+  background: conic-gradient(from 0deg, rgba(94,106,210,0.8), rgba(129,140,248,0.4), transparent 30%, transparent 70%, rgba(129,140,248,0.4), rgba(94,106,210,0.8));
+}
+
+.premium-card.featured .premium-card-inner {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(94,106,210,0.15);
+}
+
+.premium-card.featured:hover .premium-card-inner {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(94,106,210,0.25);
+}
+
+/* ── Gradient border rotation animation ──────────────── */
+@keyframes borderSpin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-border-spin {
+  animation: borderSpin 4s linear infinite;
+}
+
+/* ── Shimmer effect for featured card ────────────────── */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ── Glow pulse for status badges ────────────────────── */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* ── Progress bar animation ──────────────────────────── */
+@keyframes progressPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ── Tech tag hover ──────────────────────────────────── */
+.tech-tag {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-tag:hover {
+  background: rgba(94, 106, 210, 0.15);
+  border-color: rgba(94, 106, 210, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ── Generic Utilities ───────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Team Profile Cards ──────────────────────────────── */
+.team-card {
+  position: relative;
+  width: 280px;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: 0.5s;
+  background: #000;
+}
+
+/* --- Style A: Image slides up on hover --- */
+.team-card .tc-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 2;
+  transition: transform 0.9s ease, opacity 0.5s ease;
+}
+.team-card:hover .tc-image {
+  transform: translateY(-100px);
+  opacity: 0.4;
+}
+
+/* --- Style B: Image flips on hover --- */
+.team-card.flip-card:hover .tc-image {
+  transform: translateY(0) rotateY(180deg);
+  opacity: 1;
+}
+
+/* Social icons - shared */
+.team-card .tc-socials {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+}
+.team-card .tc-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  color: #111;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.4s ease, opacity 0.4s ease;
+  transform: translateY(200px);
+  opacity: 0;
+}
+.team-card.flip-card .tc-socials a {
+  border-radius: 50%;
+}
+.team-card:hover .tc-socials a {
+  transform: translateY(0);
+  opacity: 1;
+}
+.team-card:hover .tc-socials li:nth-child(1) a { transition-delay: 0.10s; }
+.team-card:hover .tc-socials li:nth-child(2) a { transition-delay: 0.20s; }
+.team-card:hover .tc-socials li:nth-child(3) a { transition-delay: 0.30s; }
+.team-card:hover .tc-socials li:nth-child(4) a { transition-delay: 0.40s; }
+.team-card .tc-socials a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.team-card .tc-socials a svg {
+  transition: transform 0.6s ease;
+}
+.team-card .tc-socials a:hover svg {
+  transform: rotateY(360deg);
+}
+
+/* Details bar - Style A (always visible at bottom) */
+.team-card .tc-details {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 110px;
+  z-index: 1;
+  background: #fff;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.team-card .tc-details h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.team-card .tc-details span {
+  font-size: 0.78rem;
+  color: #555;
+  font-weight: 400;
+}
+
+/* Details bar - Style B (slides up from below on hover) */
+.team-card.flip-card .tc-details {
+  bottom: -110px;
+  opacity: 0;
+  z-index: 4;
+  transition: bottom 0.4s ease, opacity 0.4s ease;
+}
+.team-card.flip-card:hover .tc-details {
+  bottom: 0;
+  opacity: 1;
+  transition-delay: 0.5s;
+}
