@@ -31,7 +31,15 @@ const GlobeIcon = () => (
   </svg>
 );
 
-type SocialIcon = "github" | "linkedin" | "twitter" | "globe";
+const InstagramIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+type SocialIcon = "github" | "linkedin" | "twitter" | "globe" | "instagram";
 
 type Member = {
   name: string;
@@ -46,81 +54,122 @@ const IconMap: Record<SocialIcon, React.FC> = {
   linkedin: LinkedinIcon,
   twitter: XIcon,
   globe: GlobeIcon,
+  instagram: InstagramIcon,
 };
 
-const members: Member[] = [
-
+const leaders: Member[] = [
   {
-    name: "Arjun Sharma",
+    name: "Suyash Shukla",
     role: "President",
-    image: "/team/profile_1.png",
-    //style: "slide",
-    style: "flip",
+    image: "/team/suyash.jpeg",
+    style: "slide",
     socials: [
-      { icon: "github", href: "#" },
-      { icon: "linkedin", href: "#" },
-      { icon: "twitter", href: "#" },
-      { icon: "globe", href: "#" },
+      { icon: "github", href: "https://www.github.com/HeyItsSuyash" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/HeyItsSuyash" },
+      { icon: "globe", href: "https://www.suyashshukla.com" },
+      { icon: "instagram", href: "https://www.instagram.com/heyitssuyash/" },
     ],
   },
   {
-    name: "Priya Mehta",
+    name: "Shailendra Mani Pandey",
     role: "Vice President",
-    image: "/team/profile_2.png",
+    image: "/team/shailendraManipandey.jpeg",
     style: "flip",
     socials: [
-      { icon: "github", href: "#" },
-      { icon: "linkedin", href: "#" },
-      { icon: "twitter", href: "#" },
+      { icon: "github", href: "https://github.com/mani0408x" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/shailendramanipandey" },
       { icon: "globe", href: "#" },
+      { icon: "instagram", href: "https://www.instagram.com/mani0408x/" },
+    ],
+  },
+];
+
+const members: Member[] = [
+  {
+    name: "Govind Verma",
+    role: "CSIS Member",
+    image: "/team/goving.jpeg",
+    style: "flip",
+    socials: [
+      { icon: "github", href: "https://github.com/Govind-Verma07" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/govindverma07/" },
+      { icon: "globe", href: "#" },
+      { icon: "instagram", href: "#" },
+
     ],
   },
   {
-    name: "Rahul Verma",
-    role: "Tech Lead",
-    image: "/team/profile_3.png",
+    name: "Divyanshu Nath Tripathi",
+    role: "CSIS Member",
+    image: "/team/divyanshu.jpeg",
     style: "slide",
     socials: [
-      { icon: "github", href: "#" },
-      { icon: "linkedin", href: "#" },
-      { icon: "twitter", href: "#" },
-      { icon: "globe", href: "#" },
+      { icon: "github", href: "https://github.com/DivyanshuNathTripathi" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/divyanshu-nath-tripathi-774773334/" },
+      { icon: "globe", href: "divyanshu-portfolio-lovat.vercel.app" },
+      { icon: "instagram", href: "https://www.instagram.com/_divyanshu89_" },
+
     ],
   },
   {
-    name: "Ananya Singh",
-    role: "Design Lead",
-    image: "/team/profile_4.png",
+    name: "Ankur Kumar",
+    role: "CSIS Member",
+    image: "/team/ankur.jpeg",
     style: "flip",
     socials: [
-      { icon: "github", href: "#" },
-      { icon: "linkedin", href: "#" },
-      { icon: "twitter", href: "#" },
+      { icon: "github", href: "https://github.com/ankurmadheshiya" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/ankur-kumar-983203350/" },
       { icon: "globe", href: "#" },
+      { icon: "instagram", href: "https://www.instagram.com/iam_ankur1/" },
+
     ],
   },
   {
-    name: "Kiran Patel",
-    role: "Research Head",
-    image: "/team/profile_5.png",
+    name: "Vaibhav Singh",
+    role: "CSIS Member",
+    image: "/team/vaibhavSingh.jpeg",
+    style: "flip",
+    socials: [
+      { icon: "github", href: "https://github.com/vaibhav3210singh" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/vaibhav-singh-894741345/" },
+      { icon: "globe", href: "#" },
+      { icon: "instagram", href: "https://www.instagram.com/vaibhav_singh._._/" },
+    ],
+  },
+  {
+    name: "Kartikey Singh",
+    role: "CSIS Member",
+    image: "/team/kartikey.jpeg",
     style: "slide",
     socials: [
-      { icon: "github", href: "#" },
-      { icon: "linkedin", href: "#" },
-      { icon: "twitter", href: "#" },
+      { icon: "github", href: "https://github.com/singhkartikey1310" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/singhkartikey1305" },
       { icon: "globe", href: "#" },
+      { icon: "instagram", href: "#" },
     ],
   },
   {
-    name: "Shreya Joshi",
-    role: "Events Lead",
-    image: "/team/profile_6.png",
+    name: "Shahjad Ali",
+    role: "CSIS Member",
+    image: "/team/shahjad.jpeg",
     style: "flip",
     socials: [
-      { icon: "github", href: "#" },
-      { icon: "linkedin", href: "#" },
-      { icon: "twitter", href: "#" },
+      { icon: "github", href: "https://github.com/shahjadali07" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/alishajju74/" },
+      { icon: "globe", href: "https://shahjadali.netlify.app/" },
+      { icon: "instagram", href: "https://www.instagram.com/shahjad.pvt_" },
+    ],
+  },
+  {
+    name: "Riya Rani",
+    role: "CSIS Member",
+    image: "/team/riya.jpeg",
+    style: "slide",
+    socials: [
+      { icon: "github", href: "https://github.com/riya-46/" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/riya-46-rani/" },
       { icon: "globe", href: "#" },
+      { icon: "instagram", href: "https://www.instagram.com/_riya6_/" },
     ],
   },
 ];
@@ -139,18 +188,96 @@ export default function TeamSection() {
           <p className="text-xs font-mono text-[var(--accent)] uppercase tracking-widest mb-3">
             The People
           </p>
-          <h2 className="font-sans font-extrabold text-3xl md:text-5xl text-[var(--text)] tracking-tight">
-            Meet the <span className="text-[var(--accent)]">Team</span>
+          <h2 className="font-space font-extrabold text-4xl md:text-6xl tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 mb-6 drop-shadow-md pb-2">
+            Meet The Minds Behind CSIS
           </h2>
-          <p className="text-[var(--text-muted)] text-sm md:text-base max-w-2xl mt-4 leading-relaxed font-normal">
-            The brilliant minds driving CSIS forward — builders, researchers, and
-            innovators dedicated to pushing boundaries.
-          </p>
+          <div className="flex flex-col gap-4 mt-8">
+            <p className="text-[var(--text-muted)] text-lg md:text-xl max-w-3xl leading-relaxed font-light border-l-4 border-[var(--accent)] pl-6 italic shadow-sm">
+              "Innovation isn't just about writing code; it's about daring to build the impossible. Here are the visionaries who make it happen."
+            </p>
+          </div>
         </div>
 
-        {/* Cards Grid */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {members.map((member, i) => {
+        {/* First Row Layout: Leader - Quote - Leader */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 items-stretch justify-items-center">
+          {/* President */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center justify-center w-full"
+          >
+            <div className="team-card flip-card w-full max-w-[320px]">
+              <div className="tc-image">
+                <Image src={leaders[0].image} alt={leaders[0].name} fill className="object-cover object-top" />
+              </div>
+              <ul className="tc-socials" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                {leaders[0].socials.map((s, si) => {
+                  const Icon = IconMap[s.icon];
+                  return (
+                    <li key={si}>
+                      <a href={s.href} target="_blank" rel="noreferrer" aria-label={s.icon}><Icon /></a>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="tc-details">
+                <h3>{leaders[0].name}</h3>
+                <span>{leaders[0].role}</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Animative Quote Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative flex items-center justify-center w-full h-full p-8 rounded-3xl border border-[var(--border)] bg-gradient-to-b from-[var(--surface)] to-[var(--bg)] shadow-[0_0_40px_rgba(37,99,235,0.1)] overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none" />
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--accent)] rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+
+            <p className="relative z-10 text-[var(--text-muted)] text-base md:text-lg leading-relaxed text-center italic font-medium">
+              "Every team member brings their own skills, ideas, and passion to CSIS. Together, we learn, grow, and work towards building a stronger and more innovative community. We are proud of the unique talents and perspectives that each individual contributes to our collective success."
+            </p>
+          </motion.div>
+
+          {/* Vice President */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center justify-center w-full"
+          >
+            <div className="team-card flip-card w-full max-w-[320px]">
+              <div className="tc-image">
+                <Image src={leaders[1].image} alt={leaders[1].name} fill className="object-cover object-top" />
+              </div>
+              <ul className="tc-socials" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                {leaders[1].socials.map((s, si) => {
+                  const Icon = IconMap[s.icon];
+                  return (
+                    <li key={si}>
+                      <a href={s.href} target="_blank" rel="noreferrer" aria-label={s.icon}><Icon /></a>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="tc-details">
+                <h3>{leaders[1].name}</h3>
+                <span>{leaders[1].role}</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Second Row Layout: 3 Members */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 justify-items-center w-full">
+          {members.slice(0, 3).map((member, i) => {
             const isFlip = member.style === "flip";
             return (
               <motion.div
@@ -159,40 +286,64 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="w-full flex justify-center"
               >
-                <div className={`team-card${isFlip ? " flip-card" : ""}`}>
+                <div className={`team-card${isFlip ? " flip-card" : ""} w-full max-w-[320px] lg:max-w-none`}>
                   {/* Photo */}
                   <div className="tc-image">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover object-top"
-                    />
+                    <Image src={member.image} alt={member.name} fill className="object-cover object-top" />
                   </div>
-
                   {/* Social Icons */}
-                  <ul
-                    className="tc-socials"
-                    style={{ listStyle: "none", padding: 0, margin: 0 }}
-                  >
+                  <ul className="tc-socials" style={{ listStyle: "none", padding: 0, margin: 0 }}>
                     {member.socials.map((s, si) => {
                       const Icon = IconMap[s.icon];
                       return (
                         <li key={si}>
-                          <a
-                            href={s.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={s.icon}
-                          >
-                            <Icon />
-                          </a>
+                          <a href={s.href} target="_blank" rel="noreferrer" aria-label={s.icon}><Icon /></a>
                         </li>
                       );
                     })}
                   </ul>
+                  {/* Details Bar */}
+                  <div className="tc-details">
+                    <h3>{member.name}</h3>
+                    <span>{member.role}</span>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
 
+        {/* Third Row Layout: 4 Members */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center w-full">
+          {members.slice(3, 7).map((member, i) => {
+            const isFlip = member.style === "flip";
+            return (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (i + 3) * 0.1 }}
+                className="w-full flex justify-center"
+              >
+                <div className={`team-card${isFlip ? " flip-card" : ""} w-full max-w-[320px] lg:max-w-[280px] xl:max-w-[320px]`}>
+                  {/* Photo */}
+                  <div className="tc-image">
+                    <Image src={member.image} alt={member.name} fill className="object-cover object-top" />
+                  </div>
+                  {/* Social Icons */}
+                  <ul className="tc-socials" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                    {member.socials.map((s, si) => {
+                      const Icon = IconMap[s.icon];
+                      return (
+                        <li key={si}>
+                          <a href={s.href} target="_blank" rel="noreferrer" aria-label={s.icon}><Icon /></a>
+                        </li>
+                      );
+                    })}
+                  </ul>
                   {/* Details Bar */}
                   <div className="tc-details">
                     <h3>{member.name}</h3>

@@ -19,11 +19,11 @@ const pillars = [
   },
   {
     title: "Funding Opportunity",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop",
   },
   {
     title: "Networking and Visibility",
-    image: "https://images.unsplash.com/photo-1515169067868-5387ec9ea278?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop",
   },
 ];
 

@@ -133,7 +133,7 @@ export default function MentorNetwork() {
 
         {/* Mentor Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[280px]">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             {filteredMentors.map((mentor, i) => (
               <motion.div
                 key={mentor.name}

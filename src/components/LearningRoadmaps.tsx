@@ -109,7 +109,7 @@ export default function LearningRoadmaps() {
         {/* Timeline Horizontal flow */}
         <div className="overflow-x-auto pb-6 -mx-6 px-6 scrollbar-thin">
           <div className="min-w-[1200px] grid grid-cols-6 gap-5">
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
               {roadmapsData[activeTab].steps.map((step, index) => (
                 <motion.div
                   key={step.title + activeTab}
