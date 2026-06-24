@@ -444,7 +444,7 @@ function ProjectCard({
   );
 }
 
-export default function ActiveProjects() {
+export default function ActiveProjects({ isHomePage = false }: { isHomePage?: boolean }) {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -529,47 +529,52 @@ export default function ActiveProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px" }}
           transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mt-32 relative max-w-4xl mx-auto"
+          className="mt-32 relative max-w-6xl mx-auto"
         >
           {/* Glowing background behind CTA */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-indigo-600/20 blur-3xl rounded-[3rem] -z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-light)] to-[var(--accent)] opacity-10 blur-3xl rounded-[3rem] -z-10" />
 
-          <div className="relative overflow-hidden rounded-3xl bg-[#08080c]/80 border border-white/10 backdrop-blur-2xl p-10 md:p-14 text-center shadow-2xl group">
-            {/* Animated border line for CTA */}
-            <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--accent-light)] to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#11111a] to-[#0a0a0f] border border-white/10 p-10 md:p-16 shadow-2xl group flex flex-col md:flex-row items-center justify-between gap-12">
+            
+            {/* Animated tech grid background */}
+            <div className="absolute inset-0 blueprint-grid opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+            
+            {/* Left side text */}
+            <div className="relative z-10 md:w-2/3 text-center md:text-left">
+              <motion.h3 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
+                {isHomePage ? "Explore All Projects" : "Know more about CSIS related projects"}
+              </motion.h3>
+              <motion.p className="text-[var(--text-muted)] text-base md:text-xl leading-relaxed">
+                {isHomePage 
+                  ? "Discover all the amazing projects built by our talented community members." 
+                  : "Explore articles, updates, research insights, and upcoming projects from the CSIS community."}
+              </motion.p>
+            </div>
 
-            <motion.h3
-              className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight"
-            >
-              Many More Innovations Ahead
-            </motion.h3>
-
-            <motion.p
-              className="text-[var(--text-muted)] text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed"
-            >
-              Explore articles, updates, research insights, and upcoming projects from the CSIS community.
-            </motion.p>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block"
-            >
-              <Link
-                href="/blogs"
-                className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-black font-semibold rounded-full overflow-hidden group/btn shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transition-all duration-300"
+            {/* Right side button */}
+            <div className="relative z-10 md:w-1/3 flex justify-center md:justify-end">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-blue-50 to-white opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
-                <span className="relative z-10 text-base">Explore CSIS Blog</span>
-                <ArrowRight className="relative z-10 w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </motion.div>
+                <Link
+                  href={isHomePage ? "/projects" : "/blogs"}
+                  className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-black font-semibold rounded-full overflow-hidden group/btn shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6)] transition-all duration-300 whitespace-nowrap"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-white via-blue-50 to-white opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
+                  <span className="relative z-10 text-base md:text-lg">
+                    {isHomePage ? "See More Projects" : "Explore CSIS Insights"}
+                  </span>
+                  <ArrowRight className="relative z-10 w-6 h-6 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </motion.div>
+            </div>
 
             {/* Decorative dots in CTA */}
             <div className="absolute top-10 left-10 w-2 h-2 rounded-full bg-blue-400/50" />
             <div className="absolute bottom-10 right-10 w-2 h-2 rounded-full bg-purple-400/50" />
-            <div className="absolute top-1/2 right-20 w-1.5 h-1.5 rounded-full bg-indigo-400/30" />
-            <div className="absolute bottom-1/4 left-20 w-1 h-1 rounded-full bg-white/30" />
           </div>
         </motion.div>
       </div>

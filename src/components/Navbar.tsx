@@ -13,9 +13,9 @@ const navLinks = [
   { href: "/#about", label: "About", exact: false },
   { href: "/team", label: "Team", exact: false },
   { href: "/projects", label: "Projects", exact: false },
-  { href: "/research", label: "Research", exact: false, pulse: true },
+  { href: "/research", label: "Research", exact: false },
   { href: "/events", label: "Events", exact: false },
-  { href: "/blogs", label: "Blog", exact: false },
+  { href: "/blogs", label: "Insights", exact: false },
   { href: "/contact", label: "Contact", exact: false },
 ];
 
@@ -72,19 +72,18 @@ export default function Navbar() {
         initial={{ y: 0 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans ${
-          scrolled
-            ? "h-[80px]"
-            : "h-[96px]"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans ${scrolled
+          ? "h-[80px]"
+          : "h-[96px]"
+          }`}
       >
         {/* Animated background glow behind the navbar */}
         <div className={`absolute inset-0 -z-20 transition-opacity duration-500 ${scrolled ? 'opacity-100' : 'opacity-0'}`}>
-           <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#111827] to-[#0B1120] opacity-95 backdrop-blur-2xl" />
-           <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/20 shadow-[0_1px_15px_rgba(255,255,255,0.1)]" />
-           {/* Subtle pulsing background glow */}
-           <div className="absolute top-0 left-1/4 w-1/2 h-[100px] bg-blue-500/10 blur-[50px] animate-pulse pointer-events-none" />
-           <div className="absolute top-0 right-1/4 w-1/4 h-[100px] bg-purple-500/10 blur-[50px] animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#111827] to-[#0B1120] opacity-95 backdrop-blur-2xl" />
+          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/20 shadow-[0_1px_15px_rgba(255,255,255,0.1)]" />
+          {/* Subtle pulsing background glow */}
+          <div className="absolute top-0 left-1/4 w-1/2 h-[100px] bg-blue-500/10 blur-[50px] animate-pulse pointer-events-none" />
+          <div className="absolute top-0 right-1/4 w-1/4 h-[100px] bg-purple-500/10 blur-[50px] animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
         </div>
 
         {/* Base background when not scrolled (optional) */}
@@ -147,19 +146,10 @@ export default function Navbar() {
                   />
 
                   <span
-                    className={`relative z-10 flex items-center gap-2 text-[15px] font-semibold transition-all duration-300 ${
-                      active ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" : "text-white/80 group-hover:text-white"
-                    }`}
+                    className={`relative z-10 flex items-center gap-2 text-[15px] font-semibold transition-all duration-300 ${active ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" : "text-white/80 group-hover:text-white"
+                      }`}
                   >
                     {link.label}
-
-                    {/* Research pulse badge */}
-                    {link.pulse && (
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
-                      </span>
-                    )}
                   </span>
 
                   {/* Active glowing underline */}
@@ -272,21 +262,14 @@ export default function Navbar() {
                       <Link
                         href={link.href}
                         onClick={() => setMenuOpen(false)}
-                        className={`flex items-center justify-between px-5 py-4 rounded-xl text-[17px] font-semibold transition-all duration-300 ${
-                          active
-                            ? "bg-gradient-to-r from-blue-600/20 to-indigo-600/10 border border-blue-500/30 text-white shadow-[0_0_15px_rgba(59,130,246,0.15)]"
-                            : "text-white/80 hover:text-white hover:bg-white/[0.06]"
-                        }`}
+                        className={`flex items-center justify-between px-5 py-4 rounded-xl text-[17px] font-semibold transition-all duration-300 ${active
+                          ? "bg-gradient-to-r from-blue-600/20 to-indigo-600/10 border border-blue-500/30 text-white shadow-[0_0_15px_rgba(59,130,246,0.15)]"
+                          : "text-white/80 hover:text-white hover:bg-white/[0.06]"
+                          }`}
                       >
                         <span className="flex items-center gap-3">
-                          {link.pulse && <FlaskConical className="w-5 h-5 text-blue-400 drop-shadow-[0_0_5px_rgba(96,165,250,0.5)]" />}
                           {link.label}
                         </span>
-                        {link.pulse && (
-                          <span className="text-[11px] px-2.5 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 font-bold uppercase tracking-wider">
-                            New
-                          </span>
-                        )}
                       </Link>
                     </motion.div>
                   );

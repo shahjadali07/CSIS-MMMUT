@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lightbulb, Eye, Users2, Code2, Construction, BookText, Rocket, ChevronRight, HelpCircle } from "lucide-react";
+import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 
 type PipelineStep = {
   phase: string;
   title: string;
   telemetry: string;
-  icon: any;
+  icon3d: string;
   desc: string;
   input: string;
   output: string;
@@ -19,7 +20,7 @@ const pipelineSteps: PipelineStep[] = [
     phase: "PHASE 01",
     title: "Idea Submission",
     telemetry: "SYS.INPUT // INTAKE",
-    icon: Lightbulb,
+    icon3d: "/images/3d-icons/3d_brain_circuit_1782307995093.png",
     desc: "Draft a technical proposal detailing the Virtual Lab simulation module or tool you intend to build and submit it to the CSIS committee.",
     input: "Raw Concept / Problem Statement",
     output: "System Proposal Document",
@@ -28,7 +29,7 @@ const pipelineSteps: PipelineStep[] = [
     phase: "PHASE 02",
     title: "Review",
     telemetry: "SYS.EVAL // AUDIT",
-    icon: Eye,
+    icon3d: "/images/3d-icons/3d_eye_icon_1782292794835.png",
     desc: "Mentors, patent advisors, and senior faculty review the computational feasibility, educational alignment, and intellectual novelty of the proposal.",
     input: "System Proposal Document",
     output: "Technical Appraisal Score & Feedback",
@@ -37,7 +38,7 @@ const pipelineSteps: PipelineStep[] = [
     phase: "PHASE 03",
     title: "Team Formation",
     telemetry: "SYS.PEERS // TEAMING",
-    icon: Users2,
+    icon3d: "/images/3d-icons/3d_network_handshake_1782307985064.png",
     desc: "Recruit specialized roles (Web Developers, AI Developers, Designers, Research Associates) from within the CSIS student directory to fill the project squad.",
     input: "Appraised Proposal",
     output: "Assembled Project Squad (3-7 peers)",
@@ -46,7 +47,7 @@ const pipelineSteps: PipelineStep[] = [
     phase: "PHASE 04",
     title: "Development",
     telemetry: "SYS.BUILD // COMPILER",
-    icon: Code2,
+    icon3d: "/images/3d-icons/3d_code_laptop_1782308010211.png",
     desc: "Write modular source files, configure API bridges, set up sandboxed databases, and manage features using Agile sprint cycles.",
     input: "Assembled Project Squad",
     output: "Asynchronous Workspace Repo commits",
@@ -55,7 +56,7 @@ const pipelineSteps: PipelineStep[] = [
     phase: "PHASE 05",
     title: "Prototype",
     telemetry: "SYS.DEPLOY // SANITY",
-    icon: Construction,
+    icon3d: "/images/3d-icons/3d_gear_icon_1782307960436.png",
     desc: "Compile files, run automated E2E tests, and deploy a stable interactive beta model directly into the Prayukti VLab ecosystem for testing.",
     input: "Workspace Repo commits",
     output: "Staged Beta Module in Prayukti VLab",
@@ -64,7 +65,7 @@ const pipelineSteps: PipelineStep[] = [
     phase: "PHASE 06",
     title: "Research",
     telemetry: "SYS.INDEX // REPORT",
-    icon: BookText,
+    icon3d: "/images/3d-icons/3d_compass_icon_1782292782374.png",
     desc: "Execute benchmarking audits, run performance latency trials, draft latex journal manuscripts, and submit for peer review.",
     input: "Staged Beta Module",
     output: "Camera-Ready Academic Paper Draft",
@@ -73,7 +74,7 @@ const pipelineSteps: PipelineStep[] = [
     phase: "PHASE 07",
     title: "Incubation",
     telemetry: "SYS.Venture // LAUNCH",
-    icon: Rocket,
+    icon3d: "/images/3d-icons/3d_cs_incubation_1782309015147.png",
     desc: "Pitch the working module and research metrics to venture partners, file academic patents, and secure seed funding for business incorporation.",
     input: "Camera-Ready Paper",
     output: "Incorporated Student Tech Startup",
@@ -84,7 +85,6 @@ export default function InnovationPipeline() {
   const [activeStep, setActiveStep] = useState(0);
 
   const activeData = pipelineSteps[activeStep];
-  const StepIcon = activeData.icon;
 
   return (
     <section id="pipeline" className="relative py-28 px-6 bg-[var(--bg)] border-t border-[var(--border)] overflow-hidden">
@@ -110,19 +110,18 @@ export default function InnovationPipeline() {
 
           <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-6">
             {pipelineSteps.map((step, idx) => {
-              const Icon = step.icon;
               const isSelected = activeStep === idx;
               return (
                 <div key={idx} className="flex items-center gap-4 lg:flex-col lg:text-center w-full lg:w-auto">
                   {/* Circle Node */}
                   <button
                     onClick={() => setActiveStep(idx)}
-                    className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 relative z-20 ${isSelected
-                        ? "bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-500/35 scale-110"
-                        : "bg-[var(--surface)] border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--text)]"
+                    className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-300 relative z-20 overflow-hidden ${isSelected
+                        ? "bg-blue-600/20 border-blue-500 shadow-lg shadow-blue-500/35 scale-110"
+                        : "bg-[var(--surface)] border-[var(--border)] hover:border-[var(--accent)]"
                       }`}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Image src={step.icon3d} alt={step.title} fill className="object-cover scale-150" />
                     {/* Pulsing indicator for current node */}
                     {isSelected && (
                       <span className="absolute inset-0 rounded-full border border-[#38BDF8] animate-ping opacity-75" />
@@ -163,8 +162,8 @@ export default function InnovationPipeline() {
               {/* Left Side: Icon & Description */}
               <div className="lg:col-span-8 space-y-6">
                 <div className="flex items-center gap-3.5 pb-4 border-b border-[var(--border)]">
-                  <div className="p-3 bg-blue-600/10 border border-blue-500/25 text-[var(--accent)] rounded-xl shrink-0">
-                    <StepIcon className="w-6 h-6" />
+                  <div className="w-16 h-16 bg-blue-600/10 border border-blue-500/25 rounded-xl shrink-0 relative overflow-hidden drop-shadow-xl">
+                    <Image src={activeData.icon3d} alt={activeData.title} fill className="object-cover scale-[1.3]" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono text-[var(--accent)] tracking-widest uppercase block mb-0.5">

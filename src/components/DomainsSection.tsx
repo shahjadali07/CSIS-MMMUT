@@ -3,12 +3,13 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Network, FlaskConical, BrainCircuit, Users, Landmark, HeartHandshake, Code2, Rocket, ArrowRight, Lightbulb, Coins } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const domains = [
   {
     title: "Networking and Visibility",
-    desc: "Building strong professional networks and enhancing global visibility for our innovators.",
+    desc: "Helping students connect with professionals, expand their network, and showcase their talents to a wider audience",
     icon: Network,
     image: "/images/domains/networking.png",
     gradient: "from-blue-500/20 to-cyan-500/20",
@@ -16,7 +17,7 @@ const domains = [
   },
   {
     title: "Research & Innovation",
-    desc: "Advancing knowledge in high-tech research labs, incubation spaces, and breakthrough ecosystems.",
+    desc: "Encouraging students to explore new technologies, work on innovative ideas, and gain hands-on experience through research and development activities",
     icon: FlaskConical,
     image: "/images/domains/research.png",
     gradient: "from-purple-500/20 to-pink-500/20",
@@ -25,7 +26,7 @@ const domains = [
 
   {
     title: "Student Ecosystem",
-    desc: "Empowering students through collaborative networking, skill building, and targeted career growth.",
+    desc: "Creating a supportive community where students can connect, learn from one another, and prepare for future opportunities",
     icon: Users,
     image: "/images/domains/student.jpg",
     gradient: "from-emerald-500/20 to-teal-500/20",
@@ -33,7 +34,7 @@ const domains = [
   },
   {
     title: "University Administration",
-    desc: "Building smart campus infrastructure with digital management dashboards and automated systems.",
+    desc: "Developing smart digital tools that support better communication, management, and learning within the campus community",
     icon: Landmark,
     image: "/images/domains/admin.jpg",
     gradient: "from-amber-500/20 to-orange-500/20",
@@ -41,7 +42,7 @@ const domains = [
   },
   {
     title: "Community & Collaboration",
-    desc: "Driving tech community engagement through hackathons, workshops, and open discussions.",
+    desc: "Bringing students together through workshops, technical events, competitions, and interactive discussions that inspire learning and collaboration",
     icon: HeartHandshake,
     image: "/images/domains/community.jpg",
     gradient: "from-rose-500/20 to-red-500/20",
@@ -49,7 +50,7 @@ const domains = [
   },
   {
     title: "Development & Technology",
-    desc: "Architecting robust software, cloud infrastructure, and modern coding environments.",
+    desc: "Creating an environment where ideas can be transformed into impactful technology solutions through collaboration and continuous learning",
     icon: Code2,
     image: "/images/domains/dev.jpg",
     gradient: "from-violet-500/20 to-purple-500/20",
@@ -58,7 +59,7 @@ const domains = [
 
   {
     title: "Expert Mentorship",
-    desc: "Connecting students with industry experts for guidance, feedback, and career growth.",
+    desc: "reating opportunities to connect with experienced professionals, gain valuable insights, and receive guidance for personal and professional growth..",
     icon: Lightbulb,
     image: "/images/domains/mentorship.png",
     gradient: "from-teal-500/20 to-emerald-500/20",
@@ -66,7 +67,7 @@ const domains = [
   },
   {
     title: "Funding Opportunity",
-    desc: "Providing access to grants, seed funding, and investor networks for innovative projects.",
+    desc: "Supporting promising ideas and projects by connecting innovators with opportunities, resources, and guidance to help them grow and succeed",
     icon: Coins,
     image: "/images/domains/funding.png",
     gradient: "from-yellow-500/20 to-amber-500/20",
@@ -180,7 +181,7 @@ export default function DomainsSection() {
   }, []);
 
   return (
-    <section id="domains" className="relative py-32 px-6 min-h-screen overflow-hidden bg-[var(--bg)]">
+    <section id="domains" className="relative pt-16 pb-32 px-6 min-h-screen overflow-hidden bg-[var(--bg)]">
 
       {/* Ecosystem Connection Lines Background (SVG) */}
       <div className="absolute inset-0 pointer-events-none opacity-20 hidden lg:block">
@@ -192,7 +193,7 @@ export default function DomainsSection() {
             </radialGradient>
           </defs>
           <path
-            d="M 50% 50% L 10% 20% M 50% 50% L 90% 20% M 50% 50% L 10% 80% M 50% 50% L 90% 80% M 50% 50% L 50% 10% M 50% 50% L 50% 90% M 50% 50% L 20% 50% M 50% 50% L 80% 50%"
+            d="M 50 50 L 10 20 M 50 50 L 90 20 M 50 50 L 10 80 M 50 50 L 90 80 M 50 50 L 50 10 M 50 50 L 50 90 M 50 50 L 20 50 M 50 50 L 80 50"
             stroke="url(#lineGlow)"
             strokeWidth="1.5"
             fill="none"
@@ -295,6 +296,22 @@ export default function DomainsSection() {
           {domains.map((domain, index) => (
             <DomainCard key={domain.title} domain={domain} index={index} />
           ))}
+        </div>
+
+        {/* Explore More Button */}
+        <div className="mt-16 flex justify-center relative z-20">
+          <Link href="/blogs">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 transition-colors"
+            >
+              <span className="text-sm font-semibold tracking-wider text-blue-400">
+                See more
+              </span>
+              <ArrowRight className="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
+          </Link>
         </div>
       </div>
     </section>

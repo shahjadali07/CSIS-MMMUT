@@ -102,11 +102,11 @@ const members: Member[] = [
     name: "Divyanshu Nath Tripathi",
     role: "CSIS Member",
     image: "/team/divyanshu.jpeg",
-    style: "slide",
+    style: "flip",
     socials: [
       { icon: "github", href: "https://github.com/DivyanshuNathTripathi" },
       { icon: "linkedin", href: "https://www.linkedin.com/in/divyanshu-nath-tripathi-774773334/" },
-      { icon: "globe", href: "divyanshu-portfolio-lovat.vercel.app" },
+      { icon: "globe", href: "https://divyanshu-portfolio-lovat.vercel.app/" },
       { icon: "instagram", href: "https://www.instagram.com/_divyanshu89_" },
 
     ],
@@ -140,7 +140,7 @@ const members: Member[] = [
     name: "Kartikey Singh",
     role: "CSIS Member",
     image: "/team/kartikey.jpeg",
-    style: "slide",
+    style: "flip",
     socials: [
       { icon: "github", href: "https://github.com/singhkartikey1310" },
       { icon: "linkedin", href: "https://www.linkedin.com/in/singhkartikey1305" },
@@ -152,7 +152,7 @@ const members: Member[] = [
     name: "Shahjad Ali",
     role: "CSIS Member",
     image: "/team/shahjad.jpeg",
-    style: "flip",
+    style: "flip", //slide
     socials: [
       { icon: "github", href: "https://github.com/shahjadali07" },
       { icon: "linkedin", href: "https://www.linkedin.com/in/alishajju74/" },
@@ -164,7 +164,7 @@ const members: Member[] = [
     name: "Riya Rani",
     role: "CSIS Member",
     image: "/team/riya.jpeg",
-    style: "slide",
+    style: "flip",
     socials: [
       { icon: "github", href: "https://github.com/riya-46/" },
       { icon: "linkedin", href: "https://www.linkedin.com/in/riya-46-rani/" },

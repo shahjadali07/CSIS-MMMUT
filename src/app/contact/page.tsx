@@ -261,7 +261,7 @@ export default function ContactPage() {
           >
             <h2 className="text-2xl font-bold text-[#34d399] mb-4">Location</h2>
             <p className="text-[var(--text)] text-lg mb-6">
-              CSED, MMMUT, Tech District, Gorakhpur, U.P.
+              Madan Mohan Malviya University of Technology, Gorakhpur, U.P.
             </p>
             <a
               href="https://maps.app.goo.gl/qatd42PVKeWn9yih7"

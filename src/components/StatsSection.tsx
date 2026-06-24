@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { Users, FolderGit2, Presentation, FileText, Landmark } from "lucide-react";
 
 const stats = [
-  { value: 2000, suffix: "+", label: "Active Members", icon: Users },
-  { value: 45, suffix: "+", label: "Projects Shipped", icon: FolderGit2 },
-  { value: 30, suffix: "+", label: "Workshops", icon: Presentation },
+  { value: 200, suffix: "+", label: "Active Members", icon: Users },
+  { value: 7, suffix: "+", label: "Projects Shipped", icon: FolderGit2 },
+  { value: 0, suffix: "+", label: "Workshops", icon: Presentation },
   { value: 15, suffix: "+", label: "Research Papers", icon: FileText },
-  { value: 8, suffix: "+", label: "Funded Startups", icon: Landmark },
+  { value: 5, suffix: "+", label: "Funded Startups", icon: Landmark },
 ];
 
 function useCounter(target: number, duration: number, visible: boolean) {
@@ -70,7 +70,7 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-6 overflow-hidden bg-[var(--bg)]">
+    <section ref={sectionRef} className="relative py-16 px-6 overflow-hidden bg-[var(--bg)]">
       <div className="absolute inset-0 noise-bg opacity-30 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto z-10">
