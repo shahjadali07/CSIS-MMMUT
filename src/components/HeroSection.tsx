@@ -65,7 +65,7 @@ export default function HeroSection() {
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[1.1] mb-6 text-white"
         >
           Engineering the <br className="hidden md:block" />
-          <span className="text-gradient">future of software.</span>
+          <span className="text-gradient">future of software</span>
         </motion.h1>
 
         {/* Subheadline */}
@@ -76,7 +76,7 @@ export default function HeroSection() {
           className="text-lg md:text-xl text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed mb-10"
         >
           <span className="block font-semibold text-white text-xl md:text-2xl mb-3">
-            The Epicenter of Technological Innovation.
+            The Epicenter of Technological Innovation
           </span>
           <p>
             We build innovative digital solutions, explore new possibilities in emerging technologies, and create a community where future leaders can learn, collaborate, and grow

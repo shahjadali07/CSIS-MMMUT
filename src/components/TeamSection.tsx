@@ -185,9 +185,6 @@ export default function TeamSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-16">
-          <p className="text-xs font-mono text-[var(--accent)] uppercase tracking-widest mb-3">
-            The People
-          </p>
           <h2 className="font-space font-extrabold text-4xl md:text-6xl tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 mb-6 drop-shadow-md pb-2">
             Meet The Minds Behind CSIS
           </h2>

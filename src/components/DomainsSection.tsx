@@ -287,7 +287,7 @@ export default function DomainsSection() {
             transition={{ delay: 0.2 }}
             className="text-[var(--text-muted)] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
           >
-            Exploring the technologies, research areas, and innovation domains shaping the future through CSIS.
+            Exploring the technologies, research areas, and innovation domains shaping the future through CSIS
           </motion.p>
         </div>
 

@@ -162,7 +162,7 @@ export default function MentorNetwork() {
             Advisory <span className="text-[var(--text-dim)]">Network</span>
           </h2>
           <p className="text-[var(--text-muted)] text-base leading-relaxed">
-            Learn from our global board of university faculty, industry architects, and successful alumni.
+            With the guidance of experienced mentors and leaders, we create opportunities for learning, meaningful growth and every interaction helps shape a stronger and more capable CSIS community
           </p>
         </div>
 

@@ -95,10 +95,10 @@ export default function AboutSection() {
           <div className="max-w-4xl mx-auto md:mx-0">
             <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
               Where Curiosity Meets <br className="hidden md:block" />
-              <span className="text-blue-400">Structured Engineering.</span>
+              <span className="text-blue-400">Structured Engineering</span>
             </h2>
             <p className="text-gray-400 text-lg md:text-2xl leading-relaxed font-light">
-              CSIS is a student-driven technology community that helps aspiring developers learn, grow, and build real-world software solutions. We support students throughout their journey, from understanding the basics to creating impactful and scalable technology projects.
+              CSIS is a student-driven technology community that helps aspiring developers learn, grow, and build real-world software solutions. We support students throughout their journey, from understanding the basics to creating impactful and scalable technology projects
             </p>
           </div>
         </div>
@@ -135,8 +135,7 @@ export default function AboutSection() {
               Our Core Objectives
             </h3>
             <p className="text-gray-400 font-light text-lg md:text-xl mb-6 max-w-3xl mx-auto">
-              CSIS acts as a catalyst for ideation, innovation, and interdisciplinary research.
-            </p>
+              CSIS provides a platform where ideas grow, skills develop, and people work together to create meaningful technology solutions            </p>
             <div className="w-32 h-1 bg-white rounded-full" />
           </div>
 
