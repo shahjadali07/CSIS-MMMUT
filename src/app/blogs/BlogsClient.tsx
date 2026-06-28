@@ -87,7 +87,7 @@ export default function BlogsClient({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="flex justify-center items-center gap-4"
+          className="flex flex-wrap justify-center items-center gap-4"
         >
           <a
             href="https://www.instagram.com/csis_mmmut?igsh=M3EzZG83cW82dzZm"

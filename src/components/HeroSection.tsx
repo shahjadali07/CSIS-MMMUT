@@ -47,12 +47,12 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] text-xs font-medium text-[var(--text-muted)] mb-8"
+          className="inline-flex flex-wrap justify-center items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--surface)] text-xs sm:text-sm font-medium text-[var(--text-muted)] mb-8 max-w-full"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[var(--accent-light)]" />
-          <span>Announcing CSIS Induction'26</span>
-          <div className="w-px h-3 bg-[var(--border)] mx-1" />
-          <button onClick={() => setIsModalOpen(true)} className="text-white hover:underline flex items-center gap-1">
+          <Sparkles className="w-3.5 h-3.5 text-[var(--accent-light)] shrink-0" />
+          <span className="text-center">Announcing CSIS Induction'26</span>
+          <div className="hidden sm:block w-px h-3 bg-[var(--border)] mx-1" />
+          <button onClick={() => setIsModalOpen(true)} className="text-white hover:underline flex items-center gap-1 shrink-0">
             Apply now <ArrowRight className="w-3 h-3" />
           </button>
         </motion.div>
@@ -62,9 +62,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[1.1] mb-6 text-white"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[1.1] mb-6 text-white"
         >
-          Engineering the <br className="hidden md:block" />
+          Engineering the <br className="hidden sm:block" />
           <span className="text-gradient">future of software</span>
         </motion.h1>
 
@@ -82,7 +82,7 @@ export default function HeroSection() {
             We build innovative digital solutions, explore new possibilities in emerging technologies, and create a community where future leaders can learn, collaborate, and grow
           </p>
           <span
-            className="flex justify-center w-full mt-6 text-xl md:text-3xl text-blue-400 opacity-90 tracking-wide whitespace-nowrap text-center mx-auto"
+            className="block w-full mt-6 text-lg sm:text-xl md:text-3xl text-blue-400 opacity-90 tracking-wide text-center mx-auto break-words"
             style={{ fontFamily: "'Lucida Handwriting', 'Apple Chancery', 'Brush Script MT', cursive" }}
           >
             We don't just predict the future — we build it.

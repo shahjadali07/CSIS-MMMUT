@@ -89,7 +89,7 @@ export default function FeaturedBlog({ post }: { post: any }) {
           )}
         </div>
 
-        <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
           {post.title}
         </h2>
         

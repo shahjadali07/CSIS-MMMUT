@@ -181,7 +181,7 @@ function ExpandingObjectives() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="w-full flex flex-col md:flex-row gap-4 h-[450px] md:h-[360px]">
+    <div className="w-full flex flex-col lg:flex-row gap-4 h-[750px] sm:h-[650px] lg:h-[420px]">
       {objectivesData.map((obj, i) => {
         const isActive = active === i;
         return (
@@ -203,12 +203,12 @@ function ExpandingObjectives() {
               {obj.id}
             </div>
 
-            <div className="relative z-10 w-full h-full flex flex-col justify-end p-6 md:p-8">
+            <div className="relative z-10 w-full h-full flex flex-col justify-end p-6 lg:p-8">
 
               {/* Collapsed Title (Vertical on Desktop, Horizontal on Mobile) */}
               {!isActive && (
                 <div className="absolute inset-0 flex items-center justify-center p-4">
-                  <h4 className="text-lg md:-rotate-90 md:whitespace-nowrap font-bold text-white/40 tracking-widest uppercase transition-colors group-hover:text-white/80">
+                  <h4 className="text-base sm:text-lg lg:-rotate-90 lg:whitespace-nowrap font-bold text-white/40 tracking-widest uppercase transition-colors group-hover:text-white/80 text-center lg:text-left">
                     {obj.title}
                   </h4>
                 </div>
@@ -219,19 +219,19 @@ function ExpandingObjectives() {
                 initial={false}
                 animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 20 }}
                 transition={{ duration: 0.2, delay: isActive ? 0.05 : 0 }}
-                className={`${isActive ? "pointer-events-auto absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8" : "pointer-events-none opacity-0 absolute"}`}
+                className={`${isActive ? "pointer-events-auto absolute bottom-6 left-6 right-6 lg:bottom-8 lg:left-8 lg:right-8" : "pointer-events-none opacity-0 absolute"}`}
               >
-                <div className={`text-sm md:text-base font-mono mb-3 ${obj.textGlow}`}>
+                <div className={`text-sm lg:text-base font-mono mb-3 ${obj.textGlow}`}>
                   // OBJECTIVE {obj.id}
                 </div>
-                <h3 className="text-2xl md:text-4xl font-black text-white mb-4 tracking-tight leading-none">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4 tracking-tight leading-none">
                   {obj.title}
                 </h3>
-                <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
-                  <div className="w-20 h-20 md:w-28 md:h-28 shrink-0 relative drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] mix-blend-screen opacity-90 transition-transform duration-500 hover:scale-110">
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start lg:items-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 shrink-0 relative drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] mix-blend-screen opacity-90 transition-transform duration-500 hover:scale-110">
                     <Image src={obj.icon} alt={obj.title} fill className="object-contain" />
                   </div>
-                  <p className="text-gray-300 text-sm md:text-base leading-relaxed font-light max-w-xl">
+                  <p className="text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed font-light max-w-xl">
                     {obj.desc}
                   </p>
                 </div>

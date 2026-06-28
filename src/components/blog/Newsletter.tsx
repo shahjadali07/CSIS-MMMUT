@@ -9,7 +9,7 @@ export default function Newsletter() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="relative rounded-3xl overflow-hidden p-10 lg:p-16 border border-[var(--border)] bg-[var(--surface)] text-center my-20"
+      className="relative rounded-3xl overflow-hidden p-6 sm:p-10 lg:p-16 border border-[var(--border)] bg-[var(--surface)] text-center my-20"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/10 via-transparent to-purple-500/10" />
       

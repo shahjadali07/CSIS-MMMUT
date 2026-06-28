@@ -73,7 +73,7 @@ const leaders: Member[] = [
   {
     name: "Shailendra Mani Pandey",
     role: "Vice President",
-    image: "/team/shailendraManipandey.jpeg",
+    image: "/team/shailendraManipandey.jpg",
     style: "flip",
     socials: [
       { icon: "github", href: "https://github.com/mani0408x" },
@@ -196,7 +196,7 @@ export default function TeamSection() {
         </div>
 
         {/* First Row Layout: Leader - Quote - Leader */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 items-stretch justify-items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 items-stretch justify-items-center w-full">
           {/* President */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -232,7 +232,7 @@ export default function TeamSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex items-center justify-center w-full h-full p-8 rounded-3xl border border-[var(--border)] bg-gradient-to-b from-[var(--surface)] to-[var(--bg)] shadow-[0_0_40px_rgba(37,99,235,0.1)] overflow-hidden group"
+            className="relative flex items-center justify-center w-full h-full p-8 rounded-3xl border border-[var(--border)] bg-gradient-to-b from-[var(--surface)] to-[var(--bg)] shadow-[0_0_40px_rgba(37,99,235,0.1)] overflow-hidden group min-h-[200px]"
           >
             <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none" />
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--accent)] rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
@@ -273,7 +273,7 @@ export default function TeamSection() {
         </div>
 
         {/* Second Row Layout: 3 Members */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 justify-items-center w-full">
+        <div className="flex flex-wrap justify-center gap-8 mb-8 w-full">
           {members.slice(0, 3).map((member, i) => {
             const isFlip = member.style === "flip";
             return (
@@ -283,9 +283,9 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="w-full flex justify-center"
+                className="flex justify-center w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-[320px]"
               >
-                <div className={`team-card${isFlip ? " flip-card" : ""} w-full max-w-[320px] lg:max-w-none`}>
+                <div className={`team-card${isFlip ? " flip-card" : ""} w-full`}>
                   {/* Photo */}
                   <div className="tc-image">
                     <Image src={member.image} alt={member.name} fill className="object-cover object-top" />
@@ -313,7 +313,7 @@ export default function TeamSection() {
         </div>
 
         {/* Third Row Layout: 4 Members */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center w-full">
+        <div className="flex flex-wrap justify-center gap-8 w-full">
           {members.slice(3, 7).map((member, i) => {
             const isFlip = member.style === "flip";
             return (
@@ -323,9 +323,9 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (i + 3) * 0.1 }}
-                className="w-full flex justify-center"
+                className="flex justify-center w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] max-w-[320px]"
               >
-                <div className={`team-card${isFlip ? " flip-card" : ""} w-full max-w-[320px] lg:max-w-[280px] xl:max-w-[320px]`}>
+                <div className={`team-card${isFlip ? " flip-card" : ""} w-full`}>
                   {/* Photo */}
                   <div className="tc-image">
                     <Image src={member.image} alt={member.name} fill className="object-cover object-top" />

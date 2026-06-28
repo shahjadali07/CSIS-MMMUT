@@ -12,7 +12,7 @@ export default function CategoryGrid({
   setActiveCategory: (c: string) => void;
 }) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
       {categories.map((cat) => (
         <motion.button
           key={cat._id}
@@ -22,7 +22,9 @@ export default function CategoryGrid({
             activeCategory === cat.title ? 'shadow-xl border-[var(--accent)]' : ''
           }`}
         >
-          <h3 className="text-lg font-semibold text-white mb-2">{cat.title}</h3>
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-2 break-words hyphens-auto">
+            {cat.title}
+          </h3>
           {cat.description && (
             <p className="text-[var(--text-muted)] text-sm line-clamp-2">{cat.description}</p>
           )}

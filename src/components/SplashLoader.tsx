@@ -54,9 +54,9 @@ export default function SplashLoader({ children }: { children: React.ReactNode }
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}
-                className="absolute bottom-10 flex flex-col items-center gap-2"
+                className="absolute bottom-10 sm:bottom-16 flex flex-col items-center gap-2 w-full px-4 text-center"
               >
-                <div className="font-space font-bold tracking-widest text-[var(--text)] text-sm uppercase">
+                <div className="font-space font-bold tracking-widest text-[var(--text)] text-xs sm:text-sm uppercase">
                   Initializing System
                 </div>
                 <div className="flex gap-1.5 items-center">

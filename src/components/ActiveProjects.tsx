@@ -97,7 +97,7 @@ const projectsData: Project[] = [
     status: "In Development",
     progress: 50,
     teamSize: 6,
-    duration: "4 Months",
+    duration: "ongoing",
     leadName: "Divyanashu Nath Tripathi",
     technologies: ["Python", "PyTorch", "TypeScript", "ONNX", "Electron"],
     applicationUrl: "https://aurelia.prayukti.dev",
@@ -111,8 +111,8 @@ const projectsData: Project[] = [
     gradient: "from-sky-600/40 via-blue-600/30 to-indigo-600/40",
     domain: "Research",
     status: "In Development",
-    progress: 32,
-    teamSize: 7,
+    progress: 62,
+    teamSize: 3,
     duration: "Ongoing",
     leadName: "Shahjad Ali",
     technologies: ["WebGPU", "TypeScript", "Rust", "WASM", "React"],
@@ -128,7 +128,7 @@ const projectsData: Project[] = [
     status: "In Development",
     progress: 32,
     teamSize: 7,
-    duration: "3 Months",
+    duration: "ongoing",
     leadName: "Shailendra Mani Pandey and Govind Verma ",
     technologies: ["Solidity", "Next.js", "GraphQL", "PostgreSQL", "Docker"],
     applicationUrl: "https://ledger-flow.prayukti.dev",
@@ -141,10 +141,10 @@ const projectsData: Project[] = [
     image: "/project/ved.png",
     gradient: "from-pink-600/40 via-purple-600/30 to-violet-600/40",
     domain: "AI & Machine Learning",
-    status: "Research Phase",
-    progress: 55,
+    status: "Beta Testing",
+    progress: 85,
     teamSize: 3,
-    duration: "Research Phase",
+    duration: "ongoing",
     leadName: "Ankur Kumar , Divyanshu Nath Tripathi and Suyash Shukla",
     technologies: ["WebRTC", "TensorFlow.js", "Canvas API", "CRDT", "Svelte"],
     applicationUrl: "https://neural-canvas.prayukti.dev",
@@ -535,19 +535,19 @@ export default function ActiveProjects({ isHomePage = false }: { isHomePage?: bo
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-light)] to-[var(--accent)] opacity-10 blur-3xl rounded-[3rem] -z-10" />
 
           <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#11111a] to-[#0a0a0f] border border-white/10 p-10 md:p-16 shadow-2xl group flex flex-col md:flex-row items-center justify-between gap-12">
-            
+
             {/* Animated tech grid background */}
             <div className="absolute inset-0 blueprint-grid opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
-            
+
             {/* Left side text */}
             <div className="relative z-10 md:w-2/3 text-center md:text-left">
               <motion.h3 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
                 {isHomePage ? "Explore All Projects" : "Know more about CSIS related projects"}
               </motion.h3>
               <motion.p className="text-[var(--text-muted)] text-base md:text-xl leading-relaxed">
-                {isHomePage 
-                  ? "Discover all the amazing projects built by our talented community members." 
+                {isHomePage
+                  ? "Discover all the amazing projects built by our talented community members."
                   : "Explore articles, updates, research insights, and upcoming projects from the CSIS community."}
               </motion.p>
             </div>
