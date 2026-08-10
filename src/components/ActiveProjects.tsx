@@ -4,15 +4,8 @@ import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import {
-  Users,
-  ExternalLink,
   Lightbulb,
-  ArrowUpRight,
-  GitBranch,
-  Clock,
-  ChevronRight,
   ArrowRight,
-  User,
 } from "lucide-react";
 import Link from "next/link";
 import ComingSoonModal from "@/components/ui/ComingSoonModal";
@@ -333,27 +326,26 @@ function ProjectCard({
             {/* Meta tags directly below description */}
             <div className="flex flex-wrap items-center gap-4 mb-5 pb-5 border-b border-white/10">
               <div className="flex items-center gap-1.5 text-[11px] font-medium text-[var(--text-dim)]">
-                <GitBranch className="w-3.5 h-3.5 text-[var(--accent)]" />
+                <span className="text-[var(--accent)] font-bold">ID:</span>
                 <span className="font-mono">{project.id}</span>
               </div>
 
               <div className="flex items-center gap-1.5 text-[11px] font-medium text-[var(--text-dim)]">
-                <Users className="w-3.5 h-3.5 text-[var(--accent)]" />
+                <span className="text-[var(--accent)] font-bold">TEAM:</span>
                 <span>{project.teamSize} Members</span>
               </div>
               {project.duration && (
                 <div className="flex items-center gap-1.5 text-[11px] font-medium text-[var(--text-dim)]">
-                  <Clock className="w-3.5 h-3.5 text-[var(--accent)]" />
+                  <span className="text-[var(--accent)] font-bold">DURATION:</span>
                   <span>{project.duration}</span>
                 </div>
               )}
               {project.leadName && (
                 <div className="flex items-center gap-1.5 text-[11px] font-medium text-[var(--text-dim)]">
-                  <User className="w-3.5 h-3.5 text-[var(--accent)]" />
-                  <span>Lead: {project.leadName}</span>
+                  <span className="text-[var(--accent)] font-bold">LEAD:</span>
+                  <span>{project.leadName}</span>
                 </div>
               )}
-
             </div>
 
             {/* Spacer to push content down */}
@@ -394,7 +386,7 @@ function ProjectCard({
               </div>
 
               {/* Action Buttons */}
-              <div className={`flex flex-wrap items-center gap-3 pt-2`}>
+              <div className="relative z-40 flex flex-wrap items-center gap-3 pt-2">
                 <motion.a
                   href={project.applicationUrl}
                   target="_blank"
@@ -407,43 +399,40 @@ function ProjectCard({
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span>Visit Application</span>
-                  <motion.span
-                    animate={isHovered ? { x: 3, y: -3, opacity: 1 } : { x: 0, y: 0, opacity: 0.8 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ArrowUpRight className={`${featured ? "w-4 h-4" : "w-3.5 h-3.5"}`} />
-                  </motion.span>
+                  <span>View Project</span>
                 </motion.a>
 
-                <motion.a
-                  href={project.githubUrl || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleExternalLinkClick}
-                  className={`flex items-center justify-center gap-2 rounded-xl transition-all duration-300 px-4 py-2 text-sm text-[var(--text-muted)] border border-white/10 hover:border-indigo-500/50 hover:shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:bg-indigo-500/10 hover:text-indigo-200`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span>GitHub</span>
-                  <motion.span
-                    animate={isHovered ? { rotate: [0, -15, 15, -15, 0], scale: 1.2 } : { rotate: 0, scale: 1 }}
-                    transition={{ duration: 0.5 }}
+                {project.githubUrl && (
+                  <motion.a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center justify-center gap-2 rounded-xl transition-all duration-300 px-4 py-2 text-sm text-[var(--text-muted)] border border-white/10 hover:border-indigo-500/50 hover:shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:bg-indigo-500/10 hover:text-indigo-200`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <GitBranch className="w-3.5 h-3.5" />
-                  </motion.span>
-                </motion.a>
+                    <span>GitHub</span>
+                  </motion.a>
+                )}
 
                 <Link
                   href={`/projects/${project.id}`}
-                  className={`flex items-center justify-center gap-1.5 rounded-xl transition-all duration-300 px-3 py-2 text-xs font-medium text-[var(--text-muted)] hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10`}
+                  className={`flex items-center justify-center gap-1.5 rounded-xl transition-all duration-300 px-4 py-2 text-sm font-medium text-[var(--text-muted)] hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10`}
                 >
                   <span>Know more</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
           </div>
+          
+          {/* Transparent Overlay for Coming Soon Projects */}
+          {project.id !== "PROJ-001" && (
+            <div className="absolute inset-0 z-30 bg-black/50 backdrop-blur-[1px] flex flex-col items-center justify-center pointer-events-none rounded-[15px]">
+              <div className="px-6 py-3 bg-black/60 border border-white/20 rounded-2xl backdrop-blur-md shadow-2xl">
+                <span className="text-white font-bold text-lg md:text-xl tracking-widest uppercase shadow-black drop-shadow-md">Case Study Coming Soon</span>
+              </div>
+            </div>
+          )}
         </div>
       </motion.div>
 

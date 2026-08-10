@@ -63,7 +63,7 @@ export default function HeroSection() {
           <p className="mb-4 text-gray-300">
             The Computer Science and Innovation Society at MMMUT enables students to participate, initiate, collaborate, and take ownership of technical activities.
           </p>
-          <p className="text-blue-400 font-semibold text-xl">
+          <p className="text-blue-400 font-sans">
             Building the next generation of technology through hands-on learning and contribution.
           </p>
         </motion.div>

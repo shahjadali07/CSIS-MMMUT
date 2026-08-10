@@ -27,7 +27,7 @@ export default function ScrollToTop() {
           transition={{ duration: 0.25, ease: "easeOut" }}
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="fixed bottom-8 left-8 z-50 w-12 h-12 rounded-2xl flex items-center justify-center text-white transition-all duration-300 group
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-2xl flex items-center justify-center text-white transition-all duration-300 group
             bg-gradient-to-br from-blue-500 to-indigo-600 
             shadow-[6px_6px_12px_rgba(0,0,0,0.4),-4px_-4px_10px_rgba(255,255,255,0.05),inset_2px_2px_5px_rgba(255,255,255,0.3),inset_-2px_-2px_5px_rgba(0,0,0,0.3)]
             hover:shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_12px_rgba(255,255,255,0.1),inset_3px_3px_6px_rgba(255,255,255,0.4),inset_-3px_-3px_6px_rgba(0,0,0,0.4)]
