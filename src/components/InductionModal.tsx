@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Sparkles, Rocket, Calendar } from "lucide-react";
+import { X, Lightbulb, Send, Calendar } from "lucide-react";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -115,10 +115,10 @@ export default function InductionModal({ isOpen, onClose }: InductionModalProps)
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.1)",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  marginBottom: "1.5rem", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+                  marginBottom: "1rem", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
                 }}
               >
-                <Sparkles size={28} color="#818CF8" />
+                <Lightbulb size={28} color="#818CF8" />
               </motion.div>
 
               {/* Heading */}
@@ -127,71 +127,65 @@ export default function InductionModal({ isOpen, onClose }: InductionModalProps)
                 color: "#FFFFFF", letterSpacing: "-0.04em",
                 marginBottom: "0.25rem", lineHeight: 1.2,
               }}>
-                Induction 2026
+                Join CSIS
               </h3>
-              <span style={{
-                fontSize: "1.5rem", fontWeight: 800,
-                background: "linear-gradient(135deg, #60A5FA, #A78BFA)",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-                backgroundClip: "text", display: "block", marginBottom: "1rem",
-              }}>
-                Coming Soon..
-              </span>
-
-              {/* Description */}
+              
               <p style={{
                 color: "#A1A1AA", fontSize: "0.9rem",
-                marginBottom: "1.75rem", lineHeight: 1.7, maxWidth: "340px",
+                marginBottom: "1.5rem", lineHeight: 1.7, maxWidth: "340px",
               }}>
-                Our next cohort application cycle is currently in preparation.
-                Get ready to build, innovate, and shape the future with CSIS.
+                Choose how you want to be a part of our community.
               </p>
 
-              {/* Info Cards */}
-              <div style={{
-                width: "100%", display: "grid",
-                gridTemplateColumns: "1fr 1fr", gap: "0.75rem", marginBottom: "1.75rem",
-              }}>
+              {/* Options */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", textAlign: "left" }}>
+                
+                {/* Contributor */}
                 <div style={{
                   background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: "12px", padding: "0.875rem",
-                  display: "flex", alignItems: "flex-start", gap: "0.6rem",
+                  borderRadius: "16px", padding: "1.25rem",
                 }}>
-                  <Calendar size={18} color="#60A5FA" style={{ marginTop: "2px", flexShrink: 0 }} />
-                  <div style={{ textAlign: "left" }}>
-                    <p style={{ fontSize: "0.8rem", fontWeight: 600, color: "#fff", marginBottom: "2px" }}>Timeline</p>
-                    <p style={{ fontSize: "0.72rem", color: "#71717A" }}>Stay tuned for dates</p>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                    <Send size={18} color="#60A5FA" />
+                    <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#fff", margin: 0 }}>Contributor</h4>
                   </div>
+                  <p style={{ fontSize: "0.85rem", color: "#A1A1AA", marginBottom: "1rem", lineHeight: 1.5 }}>
+                    Contribute to projects allotted to you by your choice and skillset. Open to all students.
+                  </p>
+                  <button disabled style={{
+                    width: "100%", padding: "0.75rem", background: "rgba(255,255,255,0.05)",
+                    color: "#71717A", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)",
+                    fontWeight: 600, fontSize: "0.9rem", cursor: "not-allowed"
+                  }}>
+                    Forms Opening Soon
+                  </button>
                 </div>
-                <div style={{
-                  background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: "12px", padding: "0.875rem",
-                  display: "flex", alignItems: "flex-start", gap: "0.6rem",
-                }}>
-                  <Rocket size={18} color="#A78BFA" style={{ marginTop: "2px", flexShrink: 0 }} />
-                  <div style={{ textAlign: "left" }}>
-                    <p style={{ fontSize: "0.8rem", fontWeight: 600, color: "#fff", marginBottom: "2px" }}>Preparation</p>
-                    <p style={{ fontSize: "0.72rem", color: "#71717A" }}>Brush up your skills</p>
-                  </div>
-                </div>
-              </div>
 
-              {/* Action */}
-              <button
-                onClick={onClose}
-                style={{
-                  width: "100%", padding: "0.875rem",
-                  background: "#FFFFFF", color: "#000",
-                  fontWeight: 600, fontSize: "0.9rem",
-                  borderRadius: "12px", border: "none",
-                  cursor: "pointer", transition: "background 0.2s, transform 0.1s",
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem",
-                }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#E5E5E5")}
-                onMouseLeave={e => (e.currentTarget.style.background = "#FFFFFF")}
-              >
-                Got it, I&apos;ll wait!
-              </button>
+                {/* Team Member */}
+                <div style={{
+                  background: "rgba(255,255,255,0.03)", border: "1px solid rgba(99,102,241,0.3)",
+                  borderRadius: "16px", padding: "1.25rem", position: "relative", overflow: "hidden"
+                }}>
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.1))", zIndex: 0 }} />
+                  <div style={{ position: "relative", zIndex: 1 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                      <Lightbulb size={18} color="#A78BFA" />
+                      <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#fff", margin: 0 }}>Core Team</h4>
+                    </div>
+                    <p style={{ fontSize: "0.85rem", color: "#A1A1AA", marginBottom: "1rem", lineHeight: 1.5 }}>
+                      Conventional society members conducting activities. Open to 2nd & 3rd years (2028 & 2029 batches).
+                    </p>
+                    <a href="/join-us/team" onClick={onClose} style={{
+                      display: "block", width: "100%", padding: "0.75rem", background: "#FFFFFF",
+                      color: "#000", borderRadius: "8px", border: "none", fontWeight: 600,
+                      fontSize: "0.9rem", cursor: "pointer", textAlign: "center", textDecoration: "none"
+                    }}>
+                      Apply Now
+                    </a>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </motion.div>
         </motion.div>

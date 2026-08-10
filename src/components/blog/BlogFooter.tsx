@@ -46,7 +46,7 @@ export default function BlogFooter() {
         </div>
       </div>
       <p className="mt-8 text-center text-xs text-[var(--text-muted)]">
-        © {new Date().getFullYear()} CSIS – All rights reserved.
+        © {new Date().getFullYear()} CSIS - All rights reserved.
       </p>
     </footer>
   );

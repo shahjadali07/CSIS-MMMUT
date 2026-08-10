@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowUpRight, Clock, Calendar, Star } from 'lucide-react'
+import { ArrowUpRight, Clock, Calendar, Award } from 'lucide-react'
 import { urlForImage } from '@/sanity/lib/image'
 import { useState } from 'react'
 
@@ -25,7 +25,7 @@ export default function FeaturedStory({ post }: { post: any }) {
     <section className="px-6 lg:px-12 py-16 max-w-7xl mx-auto">
       <div className="flex items-center gap-3 mb-8">
         <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20">
-          <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+          <Award className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
           <span className="text-xs font-semibold text-amber-400 tracking-wider uppercase">Featured Story</span>
         </div>
         <div className="h-px flex-1 bg-gradient-to-r from-amber-500/20 to-transparent" />
@@ -41,7 +41,7 @@ export default function FeaturedStory({ post }: { post: any }) {
           <div className="absolute -inset-px bg-gradient-to-r from-blue-500 via-cyan-500 to-violet-500 rounded-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 blur-sm" />
 
           <div className="relative grid lg:grid-cols-2">
-            {/* ── Image Side ── */}
+            {/* -- Image Side -- */}
             <div className="relative aspect-[16/9] lg:aspect-auto lg:h-full w-full overflow-hidden bg-black/20 flex items-center justify-center">
               {imageUrl ? (
                 <>
@@ -78,7 +78,7 @@ export default function FeaturedStory({ post }: { post: any }) {
               )}
             </div>
 
-            {/* ── Content Side ── */}
+            {/* -- Content Side -- */}
             <div className="relative z-10 p-8 lg:p-12 xl:p-16 flex flex-col justify-center">
               {/* Meta */}
               <div className="flex items-center gap-4 text-xs text-[#64748b] mb-5">

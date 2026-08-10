@@ -2,7 +2,7 @@
 
 import { notFound, useParams } from "next/navigation";
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, ExternalLink, GitBranch, Users, Clock, Tag, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, GitBranch, Users, Clock, Tag, Lightbulb } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -282,7 +282,7 @@ export default function ProjectCaseStudyPage() {
             <div className="bg-gradient-to-br from-blue-500/10 to-indigo-500/5 border border-blue-500/20 rounded-2xl p-6 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-xl pointer-events-none" />
               <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-yellow-400" />
+                <Lightbulb className="w-4 h-4 text-yellow-400" />
                 Want to contribute?
               </h3>
               <p className="text-xs text-gray-400 leading-relaxed mb-4">

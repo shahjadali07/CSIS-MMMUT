@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Zap, Globe } from "lucide-react";
+import { ArrowRight, Lightbulb, Flame, Globe } from "lucide-react";
 import InductionModal from "./InductionModal";
 
 const features = [
-  { icon: Zap, label: "Build Prototypes", desc: "Ship real products alongside university coursework." },
+  { icon: Flame, label: "Build Prototypes", desc: "Ship real products alongside university coursework." },
   { icon: Globe, label: "Open-Source", desc: "Contribute to globally indexed research and code." },
-  { icon: Sparkles, label: "Get Mentored", desc: "Learn from industry veterans and senior researchers." },
+  { icon: Lightbulb, label: "Get Mentored", desc: "Learn from industry veterans and senior researchers." },
 ];
 
 export default function CTASection() {

@@ -4,7 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import TeamSection from "@/components/TeamSection";
 
 export const metadata = {
-  title: "Team | CSIS — Computer Science & Innovation Society",
+  title: "Team | CSIS - Computer Science & Innovation Society",
   description: "Meet the brilliant minds and visionary leaders behind the Computer Science & Innovation Society.",
 };
 

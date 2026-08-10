@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Sparkles, FolderHeart } from "lucide-react";
+import { X, Lightbulb, FolderHeart } from "lucide-react";
 import Link from "next/link";
 
 type Particle = {
@@ -124,7 +124,7 @@ export default function ComingSoonModal({
               <div className="relative w-16 h-16 bg-blue-600/10 border border-blue-500/25 rounded-2xl flex items-center justify-center relative group">
                 <div className="absolute inset-0 bg-blue-500/15 blur-xl rounded-2xl pointer-events-none" />
                 <FolderHeart className="w-8 h-8 text-blue-400" />
-                <Sparkles className="w-4 h-4 text-amber-400 absolute -top-1 -right-1 animate-pulse" />
+                <Lightbulb className="w-4 h-4 text-amber-400 absolute -top-1 -right-1 animate-pulse" />
               </div>
             </div>
 

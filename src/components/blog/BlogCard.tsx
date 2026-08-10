@@ -43,12 +43,12 @@ export default function BlogCard({ post, index = 0 }: { post: any; index?: numbe
       whileHover={{ y: -6 }}
       className="group relative"
     >
-      {/* ── Gradient border glow ── */}
+      {/* -- Gradient border glow -- */}
       <div className="absolute -inset-px bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-violet-500/0 group-hover:from-blue-500/40 group-hover:via-cyan-500/30 group-hover:to-violet-500/40 rounded-2xl transition-all duration-500 blur-sm" />
 
       <Link href={`/blogs/${post.slug?.current}`} className="block relative bg-[#0d1117] border border-white/6 rounded-2xl overflow-hidden hover:border-white/12 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/5">
 
-        {/* ── Cover Image ── */}
+        {/* -- Cover Image -- */}
         <div className="relative aspect-[16/9] w-full overflow-hidden bg-black/20 flex items-center justify-center">
           {imageUrl ? (
             <>
@@ -85,7 +85,7 @@ export default function BlogCard({ post, index = 0 }: { post: any; index?: numbe
           )}
         </div>
 
-        {/* ── Content ── */}
+        {/* -- Content -- */}
         <div className="p-6">
           {/* Meta */}
           <div className="flex items-center gap-3 text-xs text-[#475569] mb-3">

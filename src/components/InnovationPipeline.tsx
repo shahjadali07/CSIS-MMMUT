@@ -105,8 +105,6 @@ export default function InnovationPipeline() {
 
         {/* Visual Pipeline Navigation (Flowchart Nodes) */}
         <div className="relative mb-12 border border-[var(--border)] bg-[var(--bg-alt)] rounded-xl p-6 md:p-8 flex flex-col items-center select-none overflow-hidden tech-corner tech-corner-top-left tech-corner-bottom-right">
-          {/* Faint animated pathway overlay (Desktop) */}
-          <div className="absolute top-1/2 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-[#38BDF8]/20 to-transparent -translate-y-1/2 hidden lg:block" />
 
           <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between gap-6">
             {pipelineSteps.map((step, idx) => {

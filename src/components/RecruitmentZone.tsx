@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X, Send, Check, Zap, Brain, BookOpen, Pen, LayoutList } from "lucide-react";
+import { ArrowRight, X, Send, Check, Flame, Brain, BookOpen, Pen, LayoutList } from "lucide-react";
 
 type Position = {
   title: string;
@@ -18,7 +18,7 @@ const positions: Position[] = [
     scope: "Core Virtual Lab terminals and state rendering frameworks.",
     requirements: ["React / Next.js", "TypeScript", "Tailwind CSS"],
     slots: 3,
-    icon: Zap,
+    icon: Flame,
   },
   {
     title: "AI Developer",

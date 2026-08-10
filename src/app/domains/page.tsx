@@ -4,7 +4,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import DomainsSection from "@/components/DomainsSection";
 
 export const metadata = {
-  title: "Domains | CSIS — Computer Science & Innovation Society",
+  title: "Domains | CSIS - Computer Science & Innovation Society",
   description: "Explore the core focus areas and domain ecosystem of CSIS, from AI/ML to Web Development.",
 };
 

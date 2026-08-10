@@ -18,7 +18,7 @@ const items: GalleryItem[] = [
   {
     type: "GRADIENT",
     tag: "SYS.FIELD_SHOT // 01",
-    title: "Student Cohort Hackathon — June 2026",
+    title: "Student Cohort Hackathon - June 2026",
     gradientFrom: "#1a1f35",
     gradientTo: "#0F172A",
     aspect: "md:col-span-2 md:row-span-1 h-64",

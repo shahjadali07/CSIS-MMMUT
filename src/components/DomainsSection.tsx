@@ -177,8 +177,6 @@ export default function DomainsSection() {
 
         {/* Nodes Selection Bar */}
         <div className="relative mb-12 border border-white/10 bg-[#050505] rounded-2xl p-6 md:p-8 flex flex-col items-center select-none overflow-hidden shadow-2xl">
-          {/* Faint animated pathway overlay (Desktop) */}
-          <div className="absolute top-1/2 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent -translate-y-1/2 hidden lg:block" />
 
           <div className="relative z-10 w-full grid grid-cols-4 lg:flex lg:flex-row items-center justify-between gap-6">
             {domainsData.map((d, idx) => {

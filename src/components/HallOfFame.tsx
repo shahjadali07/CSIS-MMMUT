@@ -78,7 +78,7 @@ export default function HallOfFame() {
         {/* Leaderboard Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-          {/* First place — large hero card */}
+          {/* First place - large hero card */}
           {leaders.slice(0, 1).map((leader) => {
             const Icon = leader.icon;
             return (
@@ -118,7 +118,7 @@ export default function HallOfFame() {
             );
           })}
 
-          {/* Ranks 2–4 stacked */}
+          {/* Ranks 2-4 stacked */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             {leaders.slice(1).map((leader, i) => {
               const Icon = leader.icon;

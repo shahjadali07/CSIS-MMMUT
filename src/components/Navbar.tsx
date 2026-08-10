@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, X, Zap, ArrowUpRight, FlaskConical } from "lucide-react";
+import { Menu, X, ArrowUpRight, FlaskConical } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -12,9 +12,6 @@ const navLinks = [
   { href: "/", label: "Home", exact: true },
   { href: "/team", label: "Team", exact: false },
   { href: "/projects", label: "Projects", exact: false },
-  { href: "/research", label: "Research", exact: false },
-  { href: "/events", label: "Events", exact: false },
-  { href: "/blogs", label: "Insights", exact: false },
   { href: "/contact", label: "Contact", exact: false },
 ];
 
@@ -108,8 +105,8 @@ export default function Navbar() {
 
         <div className="w-full h-full max-w-[1400px] mx-auto px-6 lg:px-10 flex items-center justify-between relative z-10">
 
-          {/* ── Logo ── */}
-          <Link href="/" className="flex items-center gap-4 group flex-shrink-0">
+          {/* -- Logo -- */}
+          <Link href="/" className="flex items-center gap-4 group flex-shrink-0 flex-1">
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -129,8 +126,8 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* ── Desktop Nav ── */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* -- Desktop Nav -- */}
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => {
               const active = isActive(link);
               return (
@@ -163,16 +160,8 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* ── Desktop CTAs ── */}
-          <div className="hidden lg:flex items-center gap-4">
-            {/* Explore Projects */}
-            <Link
-              href="/projects"
-              className="group relative flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/[0.15] text-white text-[14px] font-semibold hover:border-white/30 transition-all duration-300 overflow-hidden bg-white/[0.02] hover:bg-white/[0.06]"
-            >
-              <span className="relative z-10 tracking-wide">Explore Projects</span>
-            </Link>
-
+          {/* -- Desktop CTAs -- */}
+          <div className="hidden lg:flex items-center justify-end gap-4 flex-1">
             {/* Join CSIS */}
             <motion.button
               onClick={() => setIsModalOpen(true)}
@@ -186,11 +175,11 @@ export default function Navbar() {
               <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
               {/* Glow */}
               <span className="absolute inset-0 rounded-full shadow-[0_0_20px_rgba(99,102,241,0.6)] opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative z-10 tracking-wide"><a href="https://tally.so/r/BzYED7">Join CSIS</a></span>
+              <span className="relative z-10 tracking-wide">Join CSIS</span>
             </motion.button>
           </div>
 
-          {/* ── Mobile Toggle ── */}
+          {/* -- Mobile Toggle -- */}
           <motion.button
             className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-xl border border-white/[0.15] bg-white/[0.03] text-white hover:bg-white/[0.08] transition-colors"
             onClick={() => setMenuOpen(true)}
@@ -201,7 +190,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* ── Mobile Menu ── */}
+      {/* -- Mobile Menu -- */}
       <AnimatePresence>
         {menuOpen && (
           <>
@@ -275,13 +264,6 @@ export default function Navbar() {
 
               {/* Drawer footer CTAs */}
               <div className="p-6 border-t border-white/10 bg-white/[0.02] flex flex-col gap-4">
-                <Link
-                  href="/projects"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl border border-white/15 text-white text-[15px] font-bold hover:bg-white/[0.05] transition-all duration-300"
-                >
-                  Explore Projects
-                </Link>
                 <button
                   onClick={() => { setMenuOpen(false); setIsModalOpen(true); }}
                   className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[15px] font-bold shadow-[0_4px_25px_rgba(99,102,241,0.5)] hover:shadow-[0_4px_35px_rgba(99,102,241,0.7)] transition-all duration-300"

@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 import {
   Users,
   ExternalLink,
-  Sparkles,
+  Lightbulb,
   ArrowUpRight,
   GitBranch,
   Clock,
@@ -303,7 +303,7 @@ function ProjectCard({
             {featured && (
               <div className="absolute bottom-4 left-4 z-20">
                 <div className="px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  <Lightbulb className="w-3.5 h-3.5 text-amber-400" />
                   <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest">
                     Featured Project
                   </span>
@@ -488,7 +488,7 @@ export default function ActiveProjects({ isHomePage = false }: { isHomePage?: bo
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <Sparkles className="w-4 h-4 text-[var(--accent-light)]" />
+            <Lightbulb className="w-4 h-4 text-[var(--accent-light)]" />
             <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[var(--accent-light)]">
               Active Projects
             </span>

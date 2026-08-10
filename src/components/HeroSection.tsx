@@ -75,9 +75,6 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Link href="/projects" className="btn-primary w-full sm:w-auto px-8 py-3.5 text-base">
-            Explore Projects
-          </Link>
           <Link href="/contact" className="btn-secondary w-full sm:w-auto px-8 py-3.5 text-base">
             Stay in Touch
           </Link>

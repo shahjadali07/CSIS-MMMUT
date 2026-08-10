@@ -4,17 +4,17 @@ import SplashLoader from "@/components/SplashLoader";
 
 export const metadata: Metadata = {
   title: {
-    default: "CSIS — Computer Science & Innovation Society | Prayukti VLab",
+    default: "CSIS - Computer Science & Innovation Society | Prayukti VLab",
     template: "%s | CSIS · Prayukti VLab",
   },
   description:
-    "CSIS is the innovation engine of Prayukti VLab — a world-class university research society where students Learn, Build, Collaborate, Research, Innovate, and Incubate.",
+    "CSIS is the innovation engine of Prayukti VLab - a world-class university research society where students Learn, Build, Collaborate, Research, Innovate, and Incubate.",
   keywords: ["CSIS", "Prayukti-VLab", "Virtual Lab", "Technical Society", "Innovation", "Research", "Computer Science"],
   icons: {
     icon: '/images/csis-logo.png',
   },
   openGraph: {
-    siteName: "CSIS — Prayukti VLab",
+    siteName: "CSIS - Prayukti VLab",
     locale: "en_IN",
     type: "website",
   },

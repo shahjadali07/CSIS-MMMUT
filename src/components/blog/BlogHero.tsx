@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Search, Sparkles, TrendingUp, ChevronDown } from 'lucide-react'
+import { Search, Lightbulb, TrendingUp, ChevronDown } from 'lucide-react'
 
 const CATEGORY_CHIPS = [
   { label: 'AI & Research', color: 'from-blue-500/20 to-cyan-500/20 border-blue-500/30 text-blue-300' },
@@ -41,10 +41,10 @@ export default function BlogHero({ totalPosts, searchQuery, setSearchQuery, acti
   return (
     <div ref={ref} className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden">
 
-      {/* ── Deep Space Background ── */}
+      {/* -- Deep Space Background -- */}
       <div className="absolute inset-0 bg-[#030712]" />
 
-      {/* ── Grid Overlay ── */}
+      {/* -- Grid Overlay -- */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
@@ -52,7 +52,7 @@ export default function BlogHero({ totalPosts, searchQuery, setSearchQuery, acti
         }}
       />
 
-      {/* ── Radial glow following mouse ── */}
+      {/* -- Radial glow following mouse -- */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -60,19 +60,19 @@ export default function BlogHero({ totalPosts, searchQuery, setSearchQuery, acti
         }}
       />
 
-      {/* ── Static gradient orbs ── */}
+      {/* -- Static gradient orbs -- */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-3xl" />
 
-      {/* ── Animated particle dots ── */}
+      {/* -- Animated particle dots -- */}
       <Particles />
 
-      {/* ── Light beam ── */}
+      {/* -- Light beam -- */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-2/3 bg-gradient-to-b from-blue-500/30 via-blue-500/10 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
 
-      {/* ── Content ── */}
+      {/* -- Content -- */}
       <motion.div style={{ y, opacity }} className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24">
 
         {/* Badge */}
@@ -82,7 +82,7 @@ export default function BlogHero({ totalPosts, searchQuery, setSearchQuery, acti
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-medium tracking-wider mb-8"
         >
-          <Sparkles className="w-3.5 h-3.5" />
+          <Lightbulb className="w-3.5 h-3.5" />
           CSIS INSIGHTS
           <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
           <span>{totalPosts} Articles</span>
@@ -136,7 +136,7 @@ export default function BlogHero({ totalPosts, searchQuery, setSearchQuery, acti
           and ideas from the next generation of builders at CSIS.
         </motion.p>
 
-        {/* ── Search Bar ── */}
+        {/* -- Search Bar -- */}
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -160,7 +160,7 @@ export default function BlogHero({ totalPosts, searchQuery, setSearchQuery, acti
           </div>
         </motion.div>
 
-        {/* ── Category Chips ── */}
+        {/* -- Category Chips -- */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -191,7 +191,7 @@ export default function BlogHero({ totalPosts, searchQuery, setSearchQuery, acti
         </motion.div>
       </motion.div>
 
-      {/* ── Scroll indicator ── */}
+      {/* -- Scroll indicator -- */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -207,7 +207,7 @@ export default function BlogHero({ totalPosts, searchQuery, setSearchQuery, acti
   )
 }
 
-// ── Floating Particles ──────────────────────────────────────────────────────
+// -- Floating Particles ------------------------------------------------------
 function Particles() {
   const particles = Array.from({ length: 40 }, (_, i) => ({
     id: i,
