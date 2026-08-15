@@ -20,8 +20,8 @@ const purposes: ContactPurpose[] = [
     id: "general",
     title: "General Question",
     desc: "Have a general query about the society, upcoming inductions, or activities?",
-    primaryContact: "Riya Rani",
-    phone: "+919336161226",
+    primaryContact: "Govind Verma",
+    phone: "+91 8382864910",
     email: "contact@mmmut.tech",
   },
   {
@@ -36,8 +36,8 @@ const purposes: ContactPurpose[] = [
     id: "events",
     title: "Events & Opportunities",
     desc: "Want to run technical events, workshops, hackathons, or share opportunities?",
-    primaryContact: "Riya Rani",
-    phone: "+919336161226",
+    primaryContact: "Govind Verma",
+    phone: "+91 8382864910",
     email: "contact@mmmut.tech",
   },
   {
@@ -98,11 +98,10 @@ export default function ContactPage() {
                   <button
                     key={p.id}
                     onClick={() => setSelectedPurpose(p.id)}
-                    className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between group ${
-                      isSelected
+                    className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between group ${isSelected
                         ? "bg-white/[0.04] border-blue-500/60 shadow-[0_0_20px_rgba(59,130,246,0.15)] scale-[1.01]"
                         : "bg-[var(--surface)] border-white/5 hover:border-white/15"
-                    }`}
+                      }`}
                   >
                     <div className="flex-1 pr-4">
                       <h3 className={`text-base font-bold transition-colors ${isSelected ? "text-blue-400" : "text-white group-hover:text-blue-300"}`}>
@@ -112,9 +111,8 @@ export default function ContactPage() {
                         {p.desc}
                       </p>
                     </div>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center border transition-colors ${
-                      isSelected ? "border-blue-400 text-blue-400 bg-blue-400/5" : "border-white/10 text-white/40 group-hover:border-white/30 group-hover:text-white"
-                    }`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center border transition-colors ${isSelected ? "border-blue-400 text-blue-400 bg-blue-400/5" : "border-white/10 text-white/40 group-hover:border-white/30 group-hover:text-white"
+                      }`}>
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </button>

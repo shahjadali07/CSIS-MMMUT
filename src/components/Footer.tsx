@@ -160,7 +160,7 @@ export default function Footer() {
                 <div className="flex flex-col gap-1 text-xs text-[var(--text-muted)]">
                   <div>
                     <span className="font-semibold text-white">Govind Verma: </span>
-                    <a href="tel:+919336161226" className="hover:text-emerald-400 transition-colors">+91 8382864910</a>
+                    <a href="tel:+918382864910" className="hover:text-emerald-400 transition-colors">+91 8382864910</a>
                   </div>
                   <div>
                     <span className="font-semibold text-white">Shahjad Ali: </span>
