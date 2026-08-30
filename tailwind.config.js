@@ -29,8 +29,18 @@ module.exports = {
         "spin-slow": "spin 20s linear infinite",
         grid: "gridMove 20s linear infinite",
         counter: "counterUp 2s ease forwards",
+        marquee: "marquee 28s linear infinite",
+        marquee2: "marquee2 28s linear infinite",
       },
       keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        marquee2: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },

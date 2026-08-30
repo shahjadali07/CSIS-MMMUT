@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import InductionModal from "./InductionModal";
+import NotificationRibbon from "./NotificationRibbon";
 
 const navLinks = [
   { href: "/", label: "Home", exact: true },
@@ -63,29 +64,27 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav
-        ref={navRef}
-        initial={{ y: 0 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans ${scrolled
-          ? "h-[80px]"
-          : "h-[96px]"
-          }`}
-      >
+      <div className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        scrolled ? "bg-[#070A12]/95 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)]" : "bg-black/60 backdrop-blur-md"
+      }`}>
+        <NotificationRibbon />
+        <motion.nav
+          ref={navRef}
+          initial={{ y: 0 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className={`relative w-full transition-all duration-300 font-sans ${scrolled
+            ? "h-[70px]"
+            : "h-[80px]"
+            }`}
+        >
         {/* Animated background glow behind the navbar */}
         <div className={`absolute inset-0 -z-20 transition-opacity duration-500 ${scrolled ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#111827] to-[#0B1120] opacity-95 backdrop-blur-2xl" />
-          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/20 shadow-[0_1px_15px_rgba(255,255,255,0.1)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#111827] to-[#0B1120] opacity-95" />
           {/* Subtle pulsing background glow */}
           <div className="absolute top-0 left-1/4 w-1/2 h-[100px] bg-blue-500/10 blur-[50px] animate-pulse pointer-events-none" />
           <div className="absolute top-0 right-1/4 w-1/4 h-[100px] bg-purple-500/10 blur-[50px] animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
         </div>
-
-        {/* Base background when not scrolled (optional) */}
-        {!scrolled && (
-          <div className="absolute inset-0 bg-transparent -z-20" />
-        )}
 
         {/* Cursor tracking glow */}
         <div
@@ -189,6 +188,7 @@ export default function Navbar() {
           </motion.button>
         </div>
       </motion.nav>
+      </div>
 
       {/* -- Mobile Menu -- */}
       <AnimatePresence>
@@ -205,71 +205,107 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             />
 
-            {/* Drawer */}
+            {/* Full-Page Mobile Navigation Overlay */}
             <motion.div
               key="drawer"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 z-[70] w-[85vw] max-w-sm bg-gradient-to-b from-[#0F172A] to-[#0B1120] border-l border-white/10 flex flex-col shadow-2xl"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed inset-0 z-[70] w-full h-full bg-[#070A12]/98 backdrop-blur-2xl flex flex-col justify-between overflow-y-auto"
             >
-              {/* Drawer header */}
-              <div className="flex items-center justify-between px-6 py-6 border-b border-white/10 bg-white/[0.02]">
-                <div className="flex items-center gap-4">
-                  <div className="relative w-12 h-12">
-                    <Image src="/images/csis-logo.png" alt="CSIS" fill className="object-contain drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+              {/* Fullscreen Header */}
+              <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
+                <Link href="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-3">
+                  <div className="relative w-11 h-11">
+                    <Image src="/images/csis-logo.png" alt="CSIS" fill className="object-contain drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" priority />
                   </div>
                   <div>
-                    <div className="text-lg font-bold text-white tracking-tight">CSIS</div>
-                    <div className="text-[11px] font-semibold text-white/50 tracking-[0.15em] uppercase">MMMUT</div>
+                    <div className="text-xl font-bold text-white tracking-tight leading-none">CSIS</div>
+                    <div className="text-[10px] font-semibold text-blue-400 tracking-[0.2em] uppercase mt-1">MMMUT GORAKHPUR</div>
                   </div>
-                </div>
+                </Link>
                 <motion.button
                   onClick={() => setMenuOpen(false)}
                   whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.03] text-white hover:bg-white/[0.1] transition-colors"
+                  className="w-11 h-11 flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-white hover:bg-white/10 transition-colors"
+                  aria-label="Close menu"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-6 h-6" />
                 </motion.button>
               </div>
 
-              {/* Nav links */}
-              <div className="flex-1 overflow-y-auto px-4 py-8 flex flex-col gap-2">
+              {/* Ambient Glows */}
+              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+
+              {/* Navigation Links */}
+              <div className="px-6 py-8 flex flex-col gap-3 relative z-10 max-w-lg mx-auto w-full">
+                <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-gray-400 mb-2 block">
+                  Menu Directory
+                </span>
                 {navLinks.map((link, i) => {
                   const active = isActive(link);
                   return (
                     <motion.div
                       key={link.href}
-                      initial={{ opacity: 0, x: 20 }}
+                      initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.05, duration: 0.3 }}
+                      transition={{ delay: i * 0.06, duration: 0.35 }}
                     >
                       <Link
                         href={link.href}
                         onClick={() => setMenuOpen(false)}
-                        className={`flex items-center justify-between px-5 py-4 rounded-xl text-[17px] font-semibold transition-all duration-300 ${active
-                          ? "bg-gradient-to-r from-blue-600/20 to-indigo-600/10 border border-blue-500/30 text-white shadow-[0_0_15px_rgba(59,130,246,0.15)]"
-                          : "text-white/80 hover:text-white hover:bg-white/[0.06]"
+                        className={`flex items-center justify-between p-4 rounded-2xl text-xl font-bold tracking-tight transition-all duration-300 ${active
+                          ? "bg-gradient-to-r from-blue-600/20 via-indigo-600/20 to-transparent border border-blue-500/40 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+                          : "text-gray-300 hover:text-white hover:bg-white/5 border border-white/5"
                           }`}
                       >
-                        <span className="flex items-center gap-3">
-                          {link.label}
-                        </span>
+                        <span>{link.label}</span>
+                        <ArrowUpRight className={`w-5 h-5 ${active ? "text-blue-400" : "text-gray-500"}`} />
                       </Link>
                     </motion.div>
                   );
                 })}
+
+                {/* Additional Quick Action in Mobile Menu */}
+                <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-2 gap-3">
+                  <Link
+                    href="/join-us/team"
+                    onClick={() => setMenuOpen(false)}
+                    className="p-3.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-300 hover:text-white text-xs font-semibold flex flex-col gap-1 transition-all"
+                  >
+                    <span className="text-[10px] text-amber-300 uppercase font-bold tracking-wider">Inductions</span>
+                    <span className="font-bold text-white text-sm">Core Team</span>
+                  </Link>
+
+                  <Link
+                    href="/join-us/contributor"
+                    onClick={() => setMenuOpen(false)}
+                    className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300 hover:text-white text-xs font-semibold flex flex-col gap-1 transition-all"
+                  >
+                    <span className="text-[10px] text-purple-300 uppercase font-bold tracking-wider">Open to All</span>
+                    <span className="font-bold text-white text-sm">Contributor</span>
+                  </Link>
+                </div>
               </div>
 
-              {/* Drawer footer CTAs */}
-              <div className="p-6 border-t border-white/10 bg-white/[0.02] flex flex-col gap-4">
+              {/* Fullscreen Footer CTAs */}
+              <div className="p-6 border-t border-white/10 bg-black/40 relative z-10 max-w-lg mx-auto w-full flex flex-col gap-3">
                 <button
                   onClick={() => { setMenuOpen(false); setIsModalOpen(true); }}
-                  className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[15px] font-bold shadow-[0_4px_25px_rgba(99,102,241,0.5)] hover:shadow-[0_4px_35px_rgba(99,102,241,0.7)] transition-all duration-300"
+                  className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-base font-bold shadow-[0_4px_30px_rgba(99,102,241,0.5)] active:scale-[0.98] transition-all"
                 >
                   Join CSIS
                 </button>
+                <div className="flex justify-center items-center gap-6 pt-2 text-xs text-gray-400">
+                  <a href="https://whatsapp.com/channel/0029VbCJcvaKLaHo4qbZHG1Y" target="_blank" rel="noreferrer" className="hover:text-green-400 transition-colors">
+                    WhatsApp Community
+                  </a>
+                  <span>•</span>
+                  <a href="mailto:contact@mmmut.tech" className="hover:text-blue-400 transition-colors">
+                    contact@mmmut.tech
+                  </a>
+                </div>
               </div>
             </motion.div>
           </>

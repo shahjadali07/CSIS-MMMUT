@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 import DomainsSection from "@/components/DomainsSection";
 
 export const metadata = {
@@ -15,7 +14,6 @@ export default function DomainsPage() {
       <div className="h-20" />
       <DomainsSection />
       <Footer />
-      <ScrollToTop />
     </main>
   );
 }

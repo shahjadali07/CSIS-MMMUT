@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 import TeamSection from "@/components/TeamSection";
 
 export const metadata = {
@@ -15,7 +14,6 @@ export default function TeamPage() {
       <div className="h-20" />
       <TeamSection />
       <Footer />
-      <ScrollToTop />
     </main>
   );
 }

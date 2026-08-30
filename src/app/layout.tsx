@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SplashLoader from "@/components/SplashLoader";
+import ScrollToTop from "@/components/ScrollToTop";
+import InteractiveNotificationToasts from "@/components/InteractiveNotificationToasts";
 
 export const metadata: Metadata = {
   title: {
@@ -35,6 +37,8 @@ export default function RootLayout({
         <SplashLoader>
           {children}
         </SplashLoader>
+        <InteractiveNotificationToasts />
+        <ScrollToTop />
       </body>
     </html>
   );

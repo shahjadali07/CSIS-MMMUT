@@ -142,23 +142,27 @@ export default function InductionModal({ isOpen, onClose }: InductionModalProps)
                 
                 {/* Contributor */}
                 <div style={{
-                  background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: "16px", padding: "1.25rem",
+                  background: "rgba(255,255,255,0.03)", border: "1px solid rgba(96,165,250,0.3)",
+                  borderRadius: "16px", padding: "1.25rem", position: "relative", overflow: "hidden"
                 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
-                    <Send size={18} color="#60A5FA" />
-                    <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#fff", margin: 0 }}>Contributor</h4>
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(59,130,246,0.08), rgba(147,197,253,0.05))", zIndex: 0 }} />
+                  <div style={{ position: "relative", zIndex: 1 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                      <Send size={18} color="#60A5FA" />
+                      <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#fff", margin: 0 }}>Contributor</h4>
+                    </div>
+                    <p style={{ fontSize: "0.85rem", color: "#A1A1AA", marginBottom: "1rem", lineHeight: 1.5 }}>
+                      Contribute to projects allotted to you by your choice and skillset. Open to all students.
+                    </p>
+                    <a href="/join-us/contributor" onClick={onClose} style={{
+                      display: "block", width: "100%", padding: "0.75rem", background: "linear-gradient(135deg, #3B82F6, #60A5FA)",
+                      color: "#FFFFFF", borderRadius: "8px", border: "none", fontWeight: 600,
+                      fontSize: "0.9rem", cursor: "pointer", textAlign: "center", textDecoration: "none",
+                      boxShadow: "0 4px 15px rgba(59,130,246,0.3)"
+                    }}>
+                      Apply Now
+                    </a>
                   </div>
-                  <p style={{ fontSize: "0.85rem", color: "#A1A1AA", marginBottom: "1rem", lineHeight: 1.5 }}>
-                    Contribute to projects allotted to you by your choice and skillset. Open to all students.
-                  </p>
-                  <button disabled style={{
-                    width: "100%", padding: "0.75rem", background: "rgba(255,255,255,0.05)",
-                    color: "#71717A", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)",
-                    fontWeight: 600, fontSize: "0.9rem", cursor: "not-allowed"
-                  }}>
-                    Forms Opening Soon
-                  </button>
                 </div>
 
                 {/* Team Member */}

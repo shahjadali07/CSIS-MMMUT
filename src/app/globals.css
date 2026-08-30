@@ -53,6 +53,25 @@ h1, h2, h3, h4, h5, h6 {
   background: radial-gradient(circle at 50% 0%, rgba(94, 106, 210, 0.12) 0%, transparent 70%);
 }
 
+@keyframes seamlessScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-continuous {
+  display: flex;
+  width: max-content;
+  animation: seamlessScroll 35s linear infinite;
+}
+
+.animate-marquee-continuous:hover {
+  animation-play-state: paused;
+}
+
 .noise-bg {
   position: relative;
 }
@@ -313,7 +332,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 16px;
+  border-radius: 0;
 }
 
 /* Touch support & key focus support */
@@ -329,7 +348,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
 }
 

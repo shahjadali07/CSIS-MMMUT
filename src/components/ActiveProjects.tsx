@@ -211,23 +211,16 @@ function ProjectCard({
     >
       <motion.div
         ref={cardRef}
-        className={`premium-card relative w-full h-full group rounded-2xl bg-[var(--surface-light,rgba(255,255,255,0.03))] backdrop-blur-xl border border-white/10 hover:border-indigo-500/50 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] hover:shadow-[0_8px_32px_0_rgba(99,102,241,0.2)] transition-all duration-500 z-10 flex flex-col`}
+        className={`premium-card relative w-full h-full group rounded-none bg-[var(--surface-light,rgba(255,255,255,0.03))] backdrop-blur-xl border border-white/10 hover:border-indigo-500/50 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] hover:shadow-[0_8px_32px_0_rgba(99,102,241,0.2)] transition-all duration-500 z-10 flex flex-col`}
         onMouseMove={handleMouseMove}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
         whileHover={{ y: -8 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
       >
-        {/* Animated Border Background (Glow Sweep) */}
-        <div className="absolute inset-[-1px] rounded-2xl overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none -z-10">
-          <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] bg-[conic-gradient(from_0deg,transparent_0_300deg,rgba(129,140,248,0.5)_360deg)]"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
+        {/* Animated Border Background (Glow Sweep) removed as per request */}
 
-        <div className="premium-card-inner relative overflow-hidden rounded-[15px] h-full flex flex-col bg-[#050505]/90">
+        <div className="premium-card-inner relative overflow-hidden rounded-none h-full flex flex-col bg-[#050505]/90">
           {/* Cursor-following glow */}
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
@@ -427,8 +420,8 @@ function ProjectCard({
           
           {/* Transparent Overlay for Coming Soon Projects */}
           {project.id !== "PROJ-001" && (
-            <div className="absolute inset-0 z-30 bg-black/50 backdrop-blur-[1px] flex flex-col items-center justify-center pointer-events-none rounded-[15px]">
-              <div className="px-6 py-3 bg-black/60 border border-white/20 rounded-2xl backdrop-blur-md shadow-2xl">
+            <div className="absolute inset-0 z-30 bg-black/50 backdrop-blur-[1px] flex flex-col items-center justify-center pointer-events-none rounded-none">
+              <div className="px-6 py-3 bg-black/60 border border-white/20 rounded-none backdrop-blur-md shadow-2xl">
                 <span className="text-white font-bold text-lg md:text-xl tracking-widest uppercase shadow-black drop-shadow-md">Case Study Coming Soon</span>
               </div>
             </div>

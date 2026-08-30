@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 import ActiveProjects from "@/components/ActiveProjects";
 
 export const metadata = {
@@ -15,7 +14,6 @@ export default function ProjectsPage() {
       <div className="h-20" />
       <ActiveProjects />
       <Footer />
-      <ScrollToTop />
     </main>
   );
 }
