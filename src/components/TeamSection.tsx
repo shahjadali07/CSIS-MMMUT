@@ -104,7 +104,7 @@ const members: Member[] = [
     thought: "Being part of CSIS means constantly learning and sharing. The peer community here accelerates our understanding of complex software architectures.",
     socials: [
       { icon: "github", href: "https://github.com/DivyanshuNathTripathi" },
-      { icon: "linkedin", href: "https://www.linkedin.com/in/divyanshu-nath-tripathi-774773334/" },
+      { icon: "linkedin", href: "https://www.linkedin.com/in/divyanshu-nath-tripathi-93198041b" },
       { icon: "globe", href: "https://divyanshu-portfolio-lovat.vercel.app/" },
       { icon: "instagram", href: "https://www.instagram.com/_divyanshu89_" },
     ],
@@ -180,19 +180,29 @@ function TeamMemberCard({ member }: { member: Member }) {
   );
 
   const handleCardClick = () => {
-    setIsFlipped(!isFlipped);
+    setIsFlipped(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsFlipped(false);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      setIsFlipped(!isFlipped);
+      setIsFlipped(true);
     }
+  };
+
+  const handleMouseEnter = () => {
+    setIsFlipped(true);
   };
 
   return (
     <div
       onClick={handleCardClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onKeyDown={handleKeyDown}
       tabIndex={0}
       className={`team-card-container ${isFlipped ? "flipped" : ""}`}
@@ -229,7 +239,7 @@ function TeamMemberCard({ member }: { member: Member }) {
             </div>
 
             {activeSocials.length > 0 && (
-              <div className="tc-socials-wrapper" onClick={(e) => e.stopPropagation()}>
+              <div className="tc-socials-wrapper">
                 {activeSocials.map((s, si) => {
                   const Icon = IconMap[s.icon];
                   return (
@@ -237,9 +247,11 @@ function TeamMemberCard({ member }: { member: Member }) {
                       key={si}
                       href={s.href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       aria-label={`${member.name}'s ${s.icon}`}
                       className="tc-social-btn"
+                      onClick={(e) => e.stopPropagation()}
+                      onMouseDown={(e) => e.stopPropagation()}
                     >
                       <Icon />
                     </a>
@@ -265,23 +277,23 @@ export default function TeamSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="mb-16 text-center md:text-left">
-          <h2 className="font-space font-extrabold text-4xl md:text-6xl tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 mb-6 drop-shadow-md pb-2">
+          <h2 className="font-space font-extrabold text-fluid-h2 tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 mb-6 drop-shadow-md pb-2">
             Meet the Minds Behind CSIS
           </h2>
-          <p className="text-[var(--text-muted)] text-base md:text-lg max-w-2xl leading-relaxed mt-4 font-normal">
+          <p className="text-[var(--text-muted)] text-fluid-base max-w-2xl leading-relaxed mt-4 font-normal">
             A group of passionate student builders, developers, and designers taking ownership of computational projects at MMMUT.
           </p>
         </div>
 
         {/* First Row Layout: Leader - Quote - Leader */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 items-stretch justify-items-center w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 items-stretch justify-items-center w-full">
           {/* President */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center justify-center w-full"
+            className="flex items-center justify-center w-full order-1 lg:order-1"
           >
             <TeamMemberCard member={leaders[0]} />
           </motion.div>
@@ -292,12 +304,12 @@ export default function TeamSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex items-center justify-center w-full h-full p-8 rounded-3xl border border-[var(--border)] bg-gradient-to-b from-[var(--surface)] to-[var(--bg)] shadow-[0_0_40px_rgba(37,99,235,0.05)] overflow-hidden group min-h-[200px]"
+            className="relative flex items-center justify-center w-full h-full p-8 rounded-3xl border border-[var(--border)] bg-gradient-to-b from-[var(--surface)] to-[var(--bg)] shadow-[0_0_40px_rgba(37,99,235,0.05)] overflow-hidden group min-h-[200px] order-3 md:col-span-2 lg:col-span-1 lg:order-2"
           >
             <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-5 transition-opacity duration-700 pointer-events-none" />
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--accent)] rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none" />
 
-            <p className="relative z-10 text-[var(--text-muted)] text-sm md:text-base leading-relaxed text-center italic font-medium">
+            <p className="relative z-10 text-[var(--text-muted)] text-fluid-base leading-relaxed text-center italic font-medium">
               "We take ownership of technology, building tools and platforms that help students learn, collaborate, and push the limits of structured computer science engineering."
             </p>
           </motion.div>
@@ -308,7 +320,7 @@ export default function TeamSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center justify-center w-full"
+            className="flex items-center justify-center w-full order-2 lg:order-3"
           >
             <TeamMemberCard member={leaders[1]} />
           </motion.div>

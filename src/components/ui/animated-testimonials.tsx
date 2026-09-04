@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 type Testimonial = {
   quote: string;
@@ -11,52 +12,58 @@ type Testimonial = {
   src: string;
 };
 
-export function AnimatedTestimonials({
+export const AnimatedTestimonials = ({
   testimonials,
-  autoplay = true,
+  autoplay = false,
 }: {
   testimonials: Testimonial[];
   autoplay?: boolean;
-}) {
+}) => {
   const [active, setActive] = useState(0);
 
-  const handleNext = () => setActive((prev) => (prev + 1) % testimonials.length);
-  const handlePrev = () => setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const handleNext = () => {
+    setActive((prev) => (prev + 1) % testimonials.length);
+  };
 
-  const isActive = (index: number) => index === active;
+  const handlePrev = () => {
+    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const isActive = (index: number) => {
+    return index === active;
+  };
 
   useEffect(() => {
-    if (!autoplay) return;
-    const interval = setInterval(handleNext, 5000);
-    return () => clearInterval(interval);
+    if (autoplay) {
+      const interval = setInterval(handleNext, 5000);
+      return () => clearInterval(interval);
+    }
   }, [autoplay]);
 
-  const randomRotateY = (seed: number) => {
-    const vals = [-3, -2, -1, 0, 1, 2, 3, 4, -4];
-    return vals[seed % vals.length];
+  const randomRotateY = () => {
+    return Math.floor(Math.random() * 21) - 10;
   };
 
   return (
-    <div className="mx-auto max-w-sm px-4 py-6 md:max-w-4xl md:px-8 lg:px-12 font-sans antialiased">
-      <div className="relative grid grid-cols-1 gap-10 md:grid-cols-2">
-        {/* Image Stack */}
+    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
-          <div className="relative h-72 w-full md:h-96">
+          <div className="relative h-80 w-full">
             <AnimatePresence>
-              {testimonials.map((t, index) => (
+              {testimonials.map((testimonial, index) => (
                 <motion.div
-                  key={t.src}
+                  key={testimonial.name}
                   initial={{
                     opacity: 0,
                     scale: 0.9,
                     z: -100,
-                    rotate: randomRotateY(index),
+                    rotate: randomRotateY(),
                   }}
                   animate={{
                     opacity: isActive(index) ? 1 : 0.7,
                     scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(index),
+                    rotate: isActive(index) ? 0 : randomRotateY(),
                     zIndex: isActive(index)
                       ? 999
                       : testimonials.length + 2 - index,
@@ -66,7 +73,7 @@ export function AnimatedTestimonials({
                     opacity: 0,
                     scale: 0.9,
                     z: 100,
-                    rotate: randomRotateY(index),
+                    rotate: randomRotateY(),
                   }}
                   transition={{
                     duration: 0.4,
@@ -75,44 +82,61 @@ export function AnimatedTestimonials({
                   className="absolute inset-0 origin-bottom"
                 >
                   <Image
-                    src={t.src}
-                    alt={t.name}
-                    width={500}
-                    height={500}
+                    src={testimonial.src}
+                    alt={testimonial.name}
                     draggable={false}
                     className="h-full w-full rounded-3xl object-cover object-center"
+                    fill
                   />
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
         </div>
-
-        {/* Text Content */}
-        <div className="flex flex-col justify-between py-4">
+        <div className="flex justify-between flex-col py-4">
           <motion.div
             key={active}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -20, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            initial={{
+              y: 20,
+              opacity: 0,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+            exit={{
+              y: -20,
+              opacity: 0,
+            }}
+            transition={{
+              duration: 0.2,
+              ease: "easeInOut",
+            }}
           >
-            <h3 className="text-xl font-bold text-[var(--text)]">
+            <h3 className="text-2xl font-bold text-[var(--text)]">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-[var(--text-muted)] mt-1">
+            <p className="text-sm text-[var(--text-muted)]">
               {testimonials[active].designation}
             </p>
-            <motion.p className="mt-6 text-[var(--text-muted)] text-sm md:text-base leading-relaxed">
-              {testimonials[active].quote.split(" ").map((word, i) => (
+            <motion.p className="text-lg text-[var(--text-muted)] mt-8">
+              {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
-                  key={i}
-                  initial={{ filter: "blur(10px)", opacity: 0, y: 5 }}
-                  animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                  key={index}
+                  initial={{
+                    filter: "blur(10px)",
+                    opacity: 0,
+                    y: 5,
+                  }}
+                  animate={{
+                    filter: "blur(0px)",
+                    opacity: 1,
+                    y: 0,
+                  }}
                   transition={{
                     duration: 0.2,
                     ease: "easeInOut",
-                    delay: 0.015 * i,
+                    delay: 0.02 * index,
                   }}
                   className="inline-block"
                 >
@@ -121,36 +145,22 @@ export function AnimatedTestimonials({
               ))}
             </motion.p>
           </motion.div>
-
-          {/* Navigation */}
-          <div className="flex gap-4 pt-8 md:pt-0">
+          <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              aria-label="Previous"
-              className="group/button flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--accent)] transition-colors duration-200"
+              className="h-10 w-10 rounded-full bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center group/button hover:bg-[var(--accent)] transition-all"
             >
-              <svg
-                className="h-4 w-4 text-[var(--text)] group-hover/button:text-white transition-transform duration-200 group-hover/button:rotate-12"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
+              <ArrowLeft className="h-5 w-5 text-[var(--text-muted)] group-hover/button:text-white transition-colors" />
             </button>
             <button
               onClick={handleNext}
-              aria-label="Next"
-              className="group/button flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--accent)] transition-colors duration-200"
+              className="h-10 w-10 rounded-full bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center group/button hover:bg-[var(--accent)] transition-all"
             >
-              <svg
-                className="h-4 w-4 text-[var(--text)] group-hover/button:text-white transition-transform duration-200 group-hover/button:-rotate-12"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
+              <ArrowRight className="h-5 w-5 text-[var(--text-muted)] group-hover/button:text-white transition-colors" />
             </button>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};

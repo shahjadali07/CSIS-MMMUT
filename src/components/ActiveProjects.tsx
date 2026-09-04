@@ -299,10 +299,10 @@ function ProjectCard({
           </div>
 
           {/* Content Area */}
-          <div className={`p-5 md:p-6 flex flex-col flex-grow z-20`}>
+          <div className={`p-5 md:p-6 flex flex-col flex-grow`}>
             {/* Title */}
             <motion.h3
-              className={`font-bold text-[var(--text)] leading-tight mb-3 transition-colors duration-300 ${featured ? "text-2xl md:text-3xl" : "text-xl"}`}
+              className={`font-bold text-[var(--text)] leading-tight mb-3 transition-colors duration-300 ${featured ? "text-fluid-h3" : "text-xl"}`}
               animate={isHovered ? { color: "rgba(165, 180, 252, 1)" } : { color: "rgba(255, 255, 255, 1)" }}
               transition={{ duration: 0.3 }}
             >
@@ -410,9 +410,10 @@ function ProjectCard({
 
                 <Link
                   href={`/projects/${project.id}`}
-                  className={`flex items-center justify-center gap-1.5 rounded-xl transition-all duration-300 px-4 py-2 text-sm font-medium text-[var(--text-muted)] hover:text-white hover:bg-white/5 border border-transparent hover:border-white/10`}
+                  className="group flex-1 flex items-center justify-center gap-2 rounded-xl transition-all duration-300 px-5 py-2 text-sm font-semibold text-white bg-[var(--accent)] border border-[var(--accent-light)] hover:bg-[var(--accent-light)] hover:shadow-lg hover:shadow-[var(--accent)]/30 hover:-translate-y-0.5"
                 >
-                  <span>Know more</span>
+                  <span>See Case Study</span>
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </Link>
               </div>
             </div>
@@ -422,7 +423,7 @@ function ProjectCard({
           {project.id !== "PROJ-001" && (
             <div className="absolute inset-0 z-30 bg-black/50 backdrop-blur-[1px] flex flex-col items-center justify-center pointer-events-none rounded-none">
               <div className="px-6 py-3 bg-black/60 border border-white/20 rounded-none backdrop-blur-md shadow-2xl">
-                <span className="text-white font-bold text-lg md:text-xl tracking-widest uppercase shadow-black drop-shadow-md">Case Study Coming Soon</span>
+                <span className="text-white font-bold text-lg md:text-xl tracking-widest uppercase shadow-black drop-shadow-md">Project in Development</span>
               </div>
             </div>
           )}
@@ -477,7 +478,7 @@ export default function ActiveProjects({ isHomePage = false }: { isHomePage?: bo
           </motion.div>
 
           <motion.h2
-            className="font-sans font-bold text-4xl md:text-5xl lg:text-6xl text-[var(--text)] tracking-tight mb-5"
+            className="font-bold text-fluid-h2 text-[var(--text)] tracking-tight mb-5"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
@@ -489,7 +490,7 @@ export default function ActiveProjects({ isHomePage = false }: { isHomePage?: bo
           </motion.h2>
 
           <motion.p
-            className="text-[var(--text-muted)] text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-[var(--text-muted)] text-fluid-base max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.25 }}
@@ -537,10 +538,10 @@ export default function ActiveProjects({ isHomePage = false }: { isHomePage?: bo
 
             {/* Left side text */}
             <div className="relative z-10 md:w-2/3 text-center md:text-left">
-              <motion.h3 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
+              <motion.h3 className="text-fluid-h2 font-bold text-white mb-4 tracking-tight leading-tight">
                 {isHomePage ? "Explore All Projects" : "Explore what we're building."}
               </motion.h3>
-              <motion.p className="text-[var(--text-muted)] text-base md:text-xl leading-relaxed">
+              <motion.p className="text-[var(--text-muted)] text-fluid-base leading-relaxed">
                 {isHomePage
                   ? "Discover all the amazing projects built by our talented community members."
                   : "Explore articles, updates, research insights, and upcoming projects from the CSIS community."}

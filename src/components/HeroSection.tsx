@@ -47,7 +47,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[1.1] mb-6 text-white"
+          className="text-fluid-h1 font-bold mb-6 text-white"
         >
           Fostering Student <br className="hidden sm:block" />
           <span className="text-gradient">Ownership & Innovation</span>
@@ -58,7 +58,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-lg md:text-xl text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed mb-10"
+          className="text-fluid-base text-[var(--text-muted)] max-w-2xl mx-auto mb-10"
         >
           <p className="mb-4 text-gray-300">
             The Computer Science and Innovation Society at MMMUT enables students to participate, initiate, collaborate, and take ownership of technical activities.

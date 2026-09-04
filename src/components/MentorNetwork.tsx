@@ -92,14 +92,6 @@ const facultyAdvisors: Mentor[] = [
     linkedIn: "https://www.linkedin.com/in/sumit-kumar-87b086bb/",
     mail: "mailto:contact@mmmut.tech",
   },
-  {
-    name: "Faculty Advisor",
-    role: "Advisory Position",
-    affiliation: "CSED, MMMUT",
-    specialty: "Computer Science",
-    avatar: "CS",
-    quote: "Fourth advisory role to be appointed.",
-  },
 ];
 
 function MentorCard({ mentor, featured = false }: { mentor: Mentor; featured?: boolean }) {
@@ -228,7 +220,7 @@ export default function MentorNetwork() {
           <div className="text-center mb-8">
             <span className="text-xs font-mono text-gray-500 uppercase tracking-widest block">Level 03 // Faculty Advisory Panel</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {facultyAdvisors.map((advisor) => (
               <MentorCard key={advisor.name} mentor={advisor} featured={false} />
             ))}

@@ -20,8 +20,8 @@ const purposes: ContactPurpose[] = [
     id: "general",
     title: "General Question",
     desc: "Have a general query about the society, upcoming inductions, or activities?",
-    primaryContact: "Riya Rani",
-    phone: "+919336161226",
+    primaryContact: "DIVYANSHU NATH TRIPATHI",
+    phone: "+916306987592",
     email: "contact@mmmut.tech",
   },
   {
@@ -36,8 +36,8 @@ const purposes: ContactPurpose[] = [
     id: "events",
     title: "Events & Opportunities",
     desc: "Want to run technical events, workshops, hackathons, or share opportunities?",
-    primaryContact: "Riya Rani",
-    phone: "+919336161226",
+    primaryContact: "DIVYANSHU NATH TRIPATHI",
+    phone: "+916306987592",
     email: "contact@mmmut.tech",
   },
   {
@@ -52,7 +52,7 @@ const purposes: ContactPurpose[] = [
     id: "contribute",
     title: "Want to Contribute",
     desc: "Are you a student developer or designer looking to contribute and take ownership?",
-    primaryContact: "Shahjad Ali & Riya Rani",
+    primaryContact: "Shahjad Ali & DIVYANSHU NATH TRIPATHI",
     phone: "+916386554887",
     email: "contact@mmmut.tech",
   },
@@ -76,10 +76,10 @@ export default function ContactPage() {
           <span className="text-xs font-mono text-[var(--accent)] uppercase tracking-widest block mb-4">
             Connect With CSIS
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+          <h1 className="text-fluid-h1 font-extrabold tracking-tight mb-6">
             Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Touch</span>
           </h1>
-          <p className="text-[var(--text-muted)] text-base md:text-lg max-w-2xl leading-relaxed">
+          <p className="text-[var(--text-muted)] text-fluid-base max-w-2xl leading-relaxed">
             We are here to support your ideas and address questions about computer science activities, research opportunities, and Virtual Lab developments.
           </p>
         </div>

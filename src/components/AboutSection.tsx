@@ -93,11 +93,11 @@ export default function AboutSection() {
         {/* Header */}
         <div className="mb-24 text-center md:text-left">
           <div className="max-w-4xl mx-auto md:mx-0">
-            <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
+            <h2 className="text-fluid-h2 tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
               Where Curiosity Meets <br className="hidden md:block" />
               <span className="text-blue-400">Structured Engineering</span>
             </h2>
-            <p className="text-gray-400 text-lg md:text-2xl leading-relaxed font-light">
+            <p className="text-gray-400 text-fluid-base font-light">
               CSIS is a student-driven technology community that helps aspiring developers learn, grow, and build real-world software solutions. We support students throughout their journey, from understanding the basics to creating impactful and scalable technology projects
             </p>
           </div>
@@ -108,21 +108,21 @@ export default function AboutSection() {
 
           {/* Mission Card */}
           <TiltCard index="01" className="min-h-[420px]">
-            <h3 className="text-4xl md:text-5xl font-black mb-8 tracking-tighter text-white">
+            <h3 className="text-fluid-h3 mb-8 text-white">
               OUR MISSION
             </h3>
             <div className="w-16 h-1 bg-blue-500 mb-8 rounded-full" />
-            <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-light">
+            <p className="text-gray-300 text-fluid-base font-light">
               To provide students with opportunities to learn, collaborate, and build real-world projects through workshops, events, research, and hands-on experiences. CSIS is committed to fostering technical excellence, creativity, teamwork, and continuous growth in a supportive and inclusive environment.            </p>
           </TiltCard>
 
           {/* Vision Card */}
           <TiltCard index="02" className="min-h-[420px]">
-            <h3 className="text-4xl md:text-5xl font-black mb-8 tracking-tighter text-white">
+            <h3 className="text-fluid-h3 mb-8 text-white">
               OUR VISION
             </h3>
             <div className="w-16 h-1 bg-purple-500 mb-8 rounded-full" />
-            <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-light">
+            <p className="text-gray-300 text-fluid-base font-light">
               To create a supportive and collaborative community where students explore technology, share knowledge, and grow together while developing the skills, expertise, and confidence needed to solve real-world challenges and contribute to a better digital future.            </p>
           </TiltCard>
 
@@ -131,10 +131,10 @@ export default function AboutSection() {
         {/* Objectives Section - Expanding Accordion */}
         <div className="w-full mt-12">
           <div className="text-center mb-12 flex flex-col items-center">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-white">
+            <h3 className="text-fluid-h2 mb-6 text-white">
               Our Core Objectives
             </h3>
-            <p className="text-gray-400 font-light text-lg md:text-xl mb-6 max-w-3xl mx-auto">
+            <p className="text-gray-400 text-fluid-base font-light mb-6 max-w-3xl mx-auto">
               CSIS provides a platform where ideas grow, skills develop, and people work together to create meaningful technology solutions            </p>
             <div className="w-32 h-1 bg-white rounded-full" />
           </div>
@@ -224,14 +224,14 @@ function ExpandingObjectives() {
                 <div className={`text-sm lg:text-base font-mono mb-3 ${obj.textGlow}`}>
                   // OBJECTIVE {obj.id}
                 </div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4 tracking-tight leading-none">
+                <h3 className="text-fluid-h3 text-white mb-4">
                   {obj.title}
                 </h3>
                 <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start lg:items-center">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 shrink-0 relative drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] mix-blend-screen opacity-90 transition-transform duration-500 hover:scale-110">
                     <Image src={obj.icon} alt={obj.title} fill className="object-contain" />
                   </div>
-                  <p className="text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed font-light max-w-xl">
+                  <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-light max-w-xl">
                     {obj.desc}
                   </p>
                 </div>

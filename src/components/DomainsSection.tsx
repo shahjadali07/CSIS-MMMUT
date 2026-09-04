@@ -167,10 +167,10 @@ export default function DomainsSection() {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
+          <h2 className="text-fluid-h2 font-extrabold tracking-tight text-white mb-6">
             Ecosystem <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Domains</span>
           </h2>
-          <p className="text-[var(--text-muted)] text-base md:text-lg leading-relaxed">
+          <p className="text-[var(--text-muted)] text-fluid-base leading-relaxed">
             CSIS operates across these key technical domains to provide students with learning, coordination, and ownership channels.
           </p>
         </div>
@@ -229,13 +229,13 @@ export default function DomainsSection() {
                     <span className="text-[10px] font-mono text-blue-400 tracking-wider block mb-0.5 uppercase">
                       {activeData.telemetry}
                     </span>
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-white leading-none">
+                    <h3 className="text-fluid-h3 font-extrabold text-white leading-none">
                       {activeData.title}
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                <p className="text-gray-300 text-fluid-base leading-relaxed">
                   {activeData.desc}
                 </p>
 
